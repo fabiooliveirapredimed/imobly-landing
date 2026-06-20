@@ -224,7 +224,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     <h1>Treina a conversa.<br><em>Fecha o negócio.</em></h1>
     <p class="hero-sub">O copiloto IA do consultor imobiliário — pratica negociações com clientes difíceis, preenche minutas em segundos e gere a agenda pela voz.</p>
     <div class="hero-btns">
-      <a href="#lista" class="btn btn-c">Garantir acesso gratuito</a>
+      <a href="#lista" class="btn btn-c">Garantir oferta early access</a>
       <a href="#roleplay" class="btn btn-o">Ver como funciona</a>
     </div>
   </div>
@@ -232,7 +232,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     <div class="wl">
       <div id="wl-form-area">
         <div class="wl-t">Garante o teu lugar</div>
-        <div class="wl-s">Os primeiros 100 consultores têm acesso gratuito para sempre.</div>
+        <div class="wl-s">Os primeiros 100 a subscreverem o plano Pro anual (€29/mês + IVA) ganham 3 meses extra, grátis.</div>
         <div class="bar-wrap"><div class="bar-fill" id="bar" style="width:18%"></div></div>
         <div class="bar-lbl" id="bar-lbl"><strong>18 vagas</strong> preenchidas de 100</div>
         <div class="wl-form">
@@ -243,7 +243,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
             <input class="inp" id="wl-empresa" placeholder="Empresa / Agência" type="text">
           </div>
           <input class="inp" id="wl-cidade" placeholder="Cidade" type="text">
-          <button class="wl-btn" id="wl-btn" onclick="submeterLista()">Quero acesso gratuito →</button>
+          <button class="wl-btn" id="wl-btn" onclick="submeterLista()">Quero a oferta early access →</button>
           <p class="wl-note">Sem spam. Avisamos quando abrir.</p>
         </div>
       </div>
@@ -375,26 +375,27 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     <div class="pc">
       <div class="pcn">Gratuito</div>
       <div class="pcp">€0</div>
-      <div class="pcpe">Para sempre</div>
+      <div class="pcpe">/mês + IVA</div>
       <ul class="pcl"><li>Até 5 imóveis</li><li>10 posts por mês</li><li>5 role plays por mês</li><li>3 minutas por mês</li><li>Agenda básica</li></ul>
-      <a href="#lista" class="pbtn pbo">Garantir vaga gratuita</a>
+      <a href="#lista" class="pbtn pbo">Saber mais</a>
     </div>
     <div class="pc hot">
       <div class="pcb">Mais popular</div>
       <div class="pcn">Pro</div>
       <div class="pcp">€19</div>
-      <div class="pcpe">/mês por consultor</div>
+      <div class="pcpe">/mês + IVA por consultor</div>
       <ul class="pcl"><li>Imóveis ilimitados</li><li>Posts ilimitados</li><li>Role plays ilimitados</li><li>Minutas ilimitadas</li><li>Agenda por voz + sync</li><li>Sincronização CRM</li></ul>
       <a href="#lista" class="pbtn pbf">Começar Pro</a>
     </div>
     <div class="pc">
       <div class="pcn">Agência</div>
-      <div class="pcp">€49</div>
-      <div class="pcpe">/mês até 5 consultores</div>
-      <ul class="pcl"><li>Tudo do Pro</li><li>Até 5 consultores</li><li>Painel da equipa</li><li>White-label da agência</li><li>Suporte prioritário</li></ul>
+      <div class="pcp">€89</div>
+      <div class="pcpe">/mês + IVA · 5 consultores · plano Pro cada</div>
+      <ul class="pcl"><li>Plano Pro para cada consultor</li><li>Até 5 consultores</li><li>Painel de equipa</li><li>White-label da agência</li><li>Suporte prioritário</li><li>€17.80/consultor vs €29 Pro</li></ul>
       <a href="#lista" class="pbtn pbo">Falar connosco</a>
     </div>
   </div>
+  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.</p>
 </div>
 
 <!-- FEEDBACK BETA -->
@@ -427,9 +428,9 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 
 <!-- CTA FINAL -->
 <div class="cta-sec">
-  <h2>Começa hoje.<br><em>É gratuito.</em></h2>
-  <p>Sem cartão de crédito. Sem compromissos. Em 2 minutos.</p>
-  <a href="#lista" class="btn btn-c">Garantir acesso gratuito →</a>
+  <h2>Começa hoje.<br><em>Oferta early access.</em></h2>
+  <p>Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra.</p>
+  <a href="#lista" class="btn btn-c">Garantir oferta early access →</a>
 </div>
 
 <!-- FOOTER -->
@@ -457,7 +458,7 @@ async function submeterLista() {
     empresa: document.getElementById('wl-empresa').value.trim() || null,
     cidade: document.getElementById('wl-cidade').value.trim() || null,
   });
-  if (error) { alert('Ocorreu um erro. Tenta novamente.'); btn.disabled = false; btn.textContent = 'Quero acesso gratuito →'; return; }
+  if (error) { alert('Ocorreu um erro. Tenta novamente.'); btn.disabled = false; btn.textContent = 'Garantir oferta early access →'; return; }
   document.getElementById('wl-form-area').style.display = 'none';
   document.getElementById('wl-ok').style.display = 'block';
 }
