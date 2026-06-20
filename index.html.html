@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imobly — A plataforma IA para consultores imobiliários</title>
+<meta property="og:title" content="Imobly — A plataforma IA para consultores imobiliários">
+<meta property="og:description" content="Role Play IA, minutas automáticas e agenda por voz. Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra, grátis.">
+<meta property="og:url" content="https://imobly.pt">
+<link rel="canonical" href="https://imobly.pt">
+<meta name="description" content="Role Play IA, minutas automáticas e agenda por voz. Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra, grátis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--copper:#C2894C;--copper-deep:#8B5E2A;
+  --ink:#1C1A18;--slate:#6B6560;--border:#E8E1D8;
+  --white:#FFFFFF;--dark:#141210;--dark2:#1E1B18;
+  --corm:'Cormorant Garamond',serif;--mont:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--mont);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(250,247,242,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--corm);font-size:22px;font-weight:600;letter-spacing:2px;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px}
+.na{font-size:11px;font-weight:500;color:var(--slate);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.na:hover{color:var(--copper)}
+.btn{display:inline-block;padding:11px 24px;border-radius:10px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s;font-family:var(--mont);border:none}
+.btn-c{background:var(--copper);color:#fff}.btn-c:hover{background:var(--copper-deep)}
+.btn-o{background:transparent;border:1.5px solid var(--border);color:var(--ink)}.btn-o:hover{border-color:var(--copper);color:var(--copper)}
+
+/* HERO */
+.hero{min-height:100vh;padding:130px 6% 90px;display:flex;align-items:center;gap:70px;max-width:1180px;margin:0 auto}
+.hero-l{flex:1;max-width:520px}
+.hero-r{flex:0 0 350px}
+.tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;padding:6px 14px;background:rgba(194,137,76,.09);border:1px solid rgba(194,137,76,.25);border-radius:20px;font-size:10px;font-weight:600;color:var(--copper-deep);letter-spacing:1.5px;text-transform:uppercase}
+.tdot{width:6px;height:6px;border-radius:50%;background:var(--copper);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:var(--corm);font-size:clamp(44px,5vw,70px);font-weight:400;line-height:1.04;margin-bottom:20px}
+h1 em{font-style:italic;color:var(--copper)}
+.hero-sub{font-size:15px;line-height:1.72;color:var(--slate);margin-bottom:32px;max-width:440px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-btns .btn{padding:14px 28px;font-size:13px;border-radius:11px}
+
+/* WAITING LIST CARD */
+.wl{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.07)}
+.wl-t{font-family:var(--corm);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.wl-s{font-size:12px;color:var(--slate);margin-bottom:16px;line-height:1.55}
+.bar-wrap{background:var(--border);border-radius:4px;height:6px;margin-bottom:6px;overflow:hidden}
+.bar-fill{height:100%;background:var(--copper);border-radius:4px;transition:width .6s}
+.bar-lbl{font-size:10.5px;color:var(--slate);margin-bottom:18px}
+.bar-lbl strong{color:var(--copper-deep)}
+.wl-form{display:flex;flex-direction:column;gap:9px}
+.row2{display:flex;gap:9px}
+.row2>*{flex:1}
+.inp{width:100%;padding:11px 13px;background:var(--cream);border:1px solid var(--border);border-radius:9px;font-size:12.5px;color:var(--ink);font-family:var(--mont);outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--copper)}
+.inp::placeholder{color:rgba(107,101,96,.45)}
+.wl-btn{width:100%;padding:14px;background:var(--copper);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:var(--mont);cursor:pointer;transition:all .2s;margin-top:4px}
+.wl-btn:hover{background:var(--copper-deep)}
+.wl-btn:disabled{background:var(--border);color:var(--slate);cursor:not-allowed}
+.wl-note{font-size:10px;color:var(--slate);text-align:center;margin-top:10px}
+.wl-ok{display:none;text-align:center;padding:16px 0}
+.wl-ok-icon{font-size:44px;margin-bottom:12px}
+.wl-ok-t{font-family:var(--corm);font-size:22px;color:var(--ink);margin-bottom:8px}
+.wl-ok-s{font-size:12px;color:var(--slate);line-height:1.6}
+
+/* SECTIONS */
+.sec{padding:100px 6%}
+.si{max-width:1140px;margin:0 auto}
+.ey{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--copper);margin-bottom:14px}
+h2{font-family:var(--corm);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.08;margin-bottom:18px}
+h2 em{font-style:italic;color:var(--copper)}
+.ssub{font-size:15px;line-height:1.72;color:var(--slate);max-width:460px}
+.tcol{display:flex;align-items:center;gap:80px}
+.tcol>*{flex:1}
+
+/* ROLEPLAY — dark */
+.sd{background:var(--dark);padding:100px 6%}
+.sd .ey{color:var(--copper)}
+.sd h2{color:#fff}
+.sd .ssub{color:rgba(255,255,255,.42)}
+.phone{width:250px;background:#0D0B09;border-radius:46px;padding:10px;box-shadow:0 40px 80px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.05)}
+.pscr{background:var(--dark2);border-radius:38px;overflow:hidden;min-height:430px}
+.ph{padding:34px 14px 12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px}
+.ph-ic{width:32px;height:32px;border-radius:10px;background:var(--copper);display:flex;align-items:center;justify-content:center;font-size:15px}
+.ph-t{font-family:var(--corm);color:#fff;font-size:14px}
+.ph-s{font-size:9px;color:rgba(255,255,255,.3);margin-top:1px}
+.chat{padding:13px;display:flex;flex-direction:column;gap:8px}
+.b{padding:9px 12px;border-radius:13px;font-size:10.5px;line-height:1.5;max-width:85%;font-family:var(--mont)}
+.bai{background:rgba(255,255,255,.07);color:rgba(255,255,255,.75);align-self:flex-start;border-bottom-left-radius:3px}
+.bme{background:var(--copper);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.blbl{font-size:8.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.22)}
+.blbl.r{text-align:right}
+.bsc{background:rgba(194,137,76,.13);border:1px solid rgba(194,137,76,.22);border-radius:10px;padding:9px 11px}
+.bsc strong{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:3px}
+.bsc p{font-size:10px;color:rgba(255,255,255,.55);line-height:1.5}
+.dots{display:flex;align-items:center;gap:3px;padding:9px 12px;background:rgba(255,255,255,.07);border-radius:13px;border-bottom-left-radius:3px;width:fit-content}
+.dot{width:5px;height:5px;background:rgba(255,255,255,.35);border-radius:50%;animation:boing .9s infinite}
+.dot:nth-child(2){animation-delay:.15s}.dot:nth-child(3){animation-delay:.3s}
+@keyframes boing{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}}
+.scns{display:flex;flex-direction:column;gap:10px}
+.scn{padding:15px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;cursor:pointer;transition:all .2s}
+.scn.on{background:rgba(194,137,76,.11);border-color:rgba(194,137,76,.32)}
+.scn h4{font-family:var(--corm);font-size:17px;font-weight:500;color:#fff;margin-bottom:3px}
+.scn p{font-size:11px;color:rgba(255,255,255,.32);font-style:italic;line-height:1.4}
+.rpst{display:flex;gap:40px;margin-top:36px}
+.rpn{font-family:var(--corm);font-size:44px;font-weight:400;color:var(--copper);line-height:1}
+.rpl{font-size:11px;color:rgba(255,255,255,.3);margin-top:4px}
+
+/* MINUTAS */
+.sw{background:var(--white);padding:100px 6%}
+.fpr{background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:28px}
+.fpr-t{font-family:var(--corm);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.fld{margin-bottom:11px}
+.flbl{font-size:9px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--slate);margin-bottom:4px}
+.fval{padding:9px 12px;background:var(--white);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--ink)}
+.fok{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:5px 12px;background:#EEF6EE;border-radius:20px;font-size:10px;font-weight:600;color:#2A6028}
+
+/* AGENDA */
+.vc{background:var(--dark);border-radius:22px;padding:26px}
+.vbs{display:flex;align-items:center;justify-content:center;gap:3px;height:44px;margin-bottom:14px}
+.vb{width:4px;border-radius:2px;background:var(--copper);animation:wv 1s ease-in-out infinite}
+.vb:nth-child(1){height:10px;animation-delay:0s}.vb:nth-child(2){height:22px;animation-delay:.1s}
+.vb:nth-child(3){height:36px;animation-delay:.2s}.vb:nth-child(4){height:26px;animation-delay:.3s}
+.vb:nth-child(5){height:44px;animation-delay:.4s}.vb:nth-child(6){height:30px;animation-delay:.5s}
+.vb:nth-child(7){height:18px;animation-delay:.6s}.vb:nth-child(8){height:38px;animation-delay:.7s}
+.vb:nth-child(9){height:24px;animation-delay:.8s}.vb:nth-child(10){height:12px;animation-delay:.9s}
+@keyframes wv{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+.vq{font-size:12px;color:rgba(255,255,255,.42);text-align:center;font-style:italic;margin-bottom:18px}
+.vq span{color:var(--copper);font-style:normal;font-weight:600}
+.cev{background:rgba(255,255,255,.06);border-left:3px solid var(--copper);border-radius:0 10px 10px 0;padding:12px 14px}
+.ct{font-size:9px;color:rgba(255,255,255,.3);margin-bottom:4px}
+.cn{font-size:13px;color:#fff;font-weight:500}
+.cs{font-size:10.5px;color:rgba(255,255,255,.32);margin-top:3px}
+.ctg{display:inline-block;margin-top:8px;padding:3px 8px;background:rgba(194,137,76,.18);border-radius:4px;font-size:9px;font-weight:700;color:var(--copper);letter-spacing:.5px}
+
+/* FEATURES */
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.fc{padding:24px;background:var(--cream);border:1px solid var(--border);border-radius:18px;transition:all .2s}
+.fc:hover{border-color:var(--copper);transform:translateY(-2px)}
+.fi{font-size:24px;margin-bottom:14px}
+.fc h3{font-family:var(--corm);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:7px}
+.fc p{font-size:12px;color:var(--slate);line-height:1.65}
+
+/* PRICING */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.pc{padding:32px 24px;background:var(--white);border:1px solid var(--border);border-radius:20px;position:relative}
+.pc.hot{background:var(--dark);border-color:var(--copper)}
+.pcb{position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:4px 14px;background:var(--copper);border-radius:20px;font-size:9.5px;font-weight:700;color:#fff;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.pcn{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--copper);margin-bottom:12px}
+.pcp{font-family:var(--corm);font-size:54px;font-weight:400;line-height:1;color:var(--ink)}
+.pc.hot .pcp{color:#fff}
+.pcpe{font-size:12px;color:var(--slate);margin-bottom:22px}
+.pc.hot .pcpe{color:rgba(255,255,255,.4)}
+.pcl{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.pcl li{font-size:12px;color:var(--slate);display:flex;align-items:center;gap:8px}
+.pc.hot .pcl li{color:rgba(255,255,255,.52)}
+.pcl li::before{content:'✓';color:var(--copper);font-weight:700;font-size:11px;flex-shrink:0}
+.pbtn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:12.5px;font-weight:600;text-decoration:none;transition:all .2s}
+.pbo{border:1.5px solid var(--border);color:var(--ink)}.pbo:hover{border-color:var(--copper);color:var(--copper)}
+.pbf{background:var(--copper);color:#fff;border:none}.pbf:hover{background:var(--copper-deep)}
+
+/* FEEDBACK */
+.fb-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:32px;max-width:600px;margin:40px auto 0}
+.fb-t{font-family:var(--corm);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.fb-s{font-size:12.5px;color:var(--slate);margin-bottom:20px}
+.fb-form{display:flex;flex-direction:column;gap:10px}
+select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%236B6560' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-color:var(--cream)}
+textarea.inp{resize:vertical;min-height:90px;line-height:1.5}
+.fb-btn{padding:13px;background:var(--copper);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:600;font-family:var(--mont);cursor:pointer;transition:all .2s}
+.fb-btn:hover{background:var(--copper-deep)}
+.fb-ok{display:none;text-align:center;padding:16px;color:var(--copper);font-family:var(--corm);font-size:18px}
+
+/* CTA */
+.cta-sec{background:var(--dark);padding:110px 6%;text-align:center}
+.cta-sec h2{color:#fff;font-size:clamp(42px,5vw,66px)}
+.cta-sec p{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:36px;margin-top:14px}
+.cta-sec .btn{padding:17px 38px;font-size:14px;border-radius:12px}
+
+/* FOOTER */
+footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,255,.05)}
+.fi2{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.flogo{font-family:var(--corm);font-size:18px;letter-spacing:4px;color:rgba(255,255,255,.38)}
+.fcopy{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero,.tcol{flex-direction:column;gap:40px}
+  .hero{padding:110px 6% 60px}
+  .hero-r{width:100%}
+  .sec,.sd,.sw{padding:70px 6%}
+  .fg,.pg{grid-template-columns:1fr}
+  nav{padding:14px 5%}
+  .nav-links{display:none}
+  .fi2{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Imobly</a>
+  <div class="nav-links">
+    <a href="#roleplay" class="na">Role Play IA</a>
+    <a href="#minutas" class="na">Minutas</a>
+    <a href="#agenda" class="na">Agenda</a>
+    <a href="#precos" class="na">Preços</a>
+    <a href="https://olys-app.vercel.app" class="btn btn-c">Entrar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1180px;margin:0 auto;padding:0 6%">
+<div class="hero">
+  <div class="hero-l">
+    <div class="tag"><span class="tdot"></span>Early Access — Primeiros 100 consultores</div>
+    <h1>Treina a conversa.<br><em>Fecha o negócio.</em></h1>
+    <p class="hero-sub">O copiloto IA do consultor imobiliário — pratica negociações com clientes difíceis, preenche minutas em segundos e gere a agenda pela voz.</p>
+    <div class="hero-btns">
+      <a href="#lista" class="btn btn-c">Garantir oferta early access</a>
+      <a href="#roleplay" class="btn btn-o">Ver como funciona</a>
+    </div>
+  </div>
+  <div class="hero-r" id="lista">
+    <div class="wl">
+      <div id="wl-form-area">
+        <div class="wl-t">Garante o teu lugar</div>
+        <div class="wl-s">Os primeiros 100 a subscreverem o plano Pro anual (€29/mês + IVA) ganham 3 meses extra, grátis.</div>
+        <div class="bar-wrap"><div class="bar-fill" id="bar" style="width:18%"></div></div>
+        <div class="bar-lbl" id="bar-lbl"><strong>18 vagas</strong> preenchidas de 100</div>
+        <div class="wl-form">
+          <input class="inp" id="wl-nome" placeholder="O teu nome" type="text">
+          <input class="inp" id="wl-email" placeholder="Email profissional *" type="email" required>
+          <div class="row2">
+            <input class="inp" id="wl-tel" placeholder="Telemóvel" type="tel">
+            <input class="inp" id="wl-empresa" placeholder="Empresa / Agência" type="text">
+          </div>
+          <input class="inp" id="wl-cidade" placeholder="Cidade" type="text">
+          <button class="wl-btn" id="wl-btn" onclick="submeterLista()">Quero a oferta early access →</button>
+          <p class="wl-note">Sem spam. Avisamos quando abrir.</p>
+        </div>
+      </div>
+      <div class="wl-ok" id="wl-ok">
+        <div class="wl-ok-icon">🎉</div>
+        <div class="wl-ok-t">Estás na lista!</div>
+        <p class="wl-ok-s">Vamos avisar-te assim que abrirmos. Obrigado por acreditares no projeto.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ROLE PLAY IA -->
+<div class="sd" id="roleplay">
+  <div class="tcol si">
+    <div>
+      <div class="ey">Role Play IA</div>
+      <h2>Pratica até<br><em>acertar na certa</em></h2>
+      <p class="ssub">A IA simula clientes reais — objeções ao preço, hesitações de financiamento, comparações com outros imóveis. Treinas no Imobly, fechas na vida real.</p>
+      <div class="rpst">
+        <div><div class="rpn">3×</div><div class="rpl">mais preparado para objeções</div></div>
+        <div><div class="rpn">∞</div><div class="rpl">simulações disponíveis</div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="phone">
+        <div class="pscr">
+          <div class="ph">
+            <div class="ph-ic">🎭</div>
+            <div><div class="ph-t">Role Play IA</div><div class="ph-s">Objeção de preço — difícil</div></div>
+          </div>
+          <div class="chat">
+            <div class="blbl">Cliente</div>
+            <div class="b bai" id="c1" style="opacity:0">O preço está 30 mil acima do mercado. Vi apartamentos iguais mais baratos.</div>
+            <div class="blbl r">Tu</div>
+            <div class="b bme" id="c2" style="opacity:0">Posso mostrar-lhe os comparáveis desta zona nos últimos 3 meses?</div>
+            <div class="dots" id="cdots" style="opacity:0"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="b bai" id="c3" style="opacity:0">Mas o condomínio também é caro. Como justifica?</div>
+            <div class="bsc" id="c4" style="opacity:0">
+              <strong>⭐ Avaliação Imobly</strong>
+              <p>Boa gestão da primeira objeção. Para duplas, separa os temas e responde com dados concretos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scns">
+        <div class="scn on"><h4>Objeção de preço</h4><p>"Vi apartamentos iguais por menos 30 mil euros..."</p></div>
+        <div class="scn"><h4>Hesitação de último minuto</h4><p>"Preciso de pensar mais antes de assinar..."</p></div>
+        <div class="scn"><h4>Dúvida de financiamento</h4><p>"Não sei se o banco aprova o crédito..."</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MINUTAS -->
+<div class="sw" id="minutas">
+  <div class="tcol si">
+    <div class="fpr">
+      <div class="fpr-t">Promessa de Compra e Venda</div>
+      <div class="fld"><div class="flbl">Vendedor</div><div class="fval">Maria da Conceição Ferreira dos Santos</div></div>
+      <div class="fld"><div class="flbl">Comprador</div><div class="fval">João Miguel Alves Pereira</div></div>
+      <div class="fld"><div class="flbl">Imóvel</div><div class="fval">Rua das Flores, n.º 12, 2.º Dto, Lisboa</div></div>
+      <div class="fld"><div class="flbl">Valor de venda</div><div class="fval">285.000,00 €</div></div>
+      <div class="fld"><div class="flbl">Sinal</div><div class="fval">28.500,00 € — pago nesta data</div></div>
+      <div class="fok">✓ Minuta gerada pela IA · pronta a assinar</div>
+    </div>
+    <div>
+      <div class="ey">Minutas automáticas</div>
+      <h2>Pronta a assinar<br>em <em>30 segundos</em></h2>
+      <p class="ssub">Responde a três perguntas. O Imobly gera a minuta de promessa de compra e venda preenchida, com todos os dados legais. Exporta em PDF, pronto a assinar.</p>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📋</div><span style="font-size:13px;color:var(--slate)">Promessa de Compra e Venda</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">🏠</div><span style="font-size:13px;color:var(--slate)">Ficha de visita e proposta</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📄</div><span style="font-size:13px;color:var(--slate)">Relatório de avaliação de imóvel</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDA POR VOZ -->
+<div class="sec" id="agenda">
+  <div class="tcol si">
+    <div>
+      <div class="ey">Agenda por voz</div>
+      <h2>Fala. A agenda<br><em>trata do resto.</em></h2>
+      <p class="ssub">Diz "Visita amanhã às 15h, T3 Carnaxide, Maria Silva" e o evento aparece no teu Google Calendar ou Outlook — sem tocar no telemóvel.</p>
+      <div style="margin-top:28px;padding:20px 24px;background:var(--white);border:1px solid var(--border);border-radius:16px;display:inline-block">
+        <div style="font-size:9.5px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Exemplo</div>
+        <div style="font-family:var(--corm);font-size:18px;color:var(--ink);font-style:italic">"Visita amanhã às 15h, T3 Carnaxide, Maria Silva"</div>
+      </div>
+    </div>
+    <div class="vc">
+      <div class="vbs"><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div></div>
+      <div class="vq">"Visita amanhã às 15h, <span>T3 Carnaxide</span>, Maria Silva"</div>
+      <div class="cev">
+        <div class="ct">Amanhã · 15:00 – 16:00</div>
+        <div class="cn">Visita — T3 Carnaxide</div>
+        <div class="cs">Maria Silva · Adicionado ao Google Calendar</div>
+        <div class="ctg">SINCRONIZADO</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIS FUNCIONALIDADES -->
+<div class="sw">
+  <div class="si">
+    <div class="ey">Mais funcionalidades</div>
+    <h2>Tudo num só lugar</h2>
+    <div class="fg">
+      <div class="fc"><div class="fi">📱</div><h3>Posts com IA</h3><p>Legendas para Instagram e LinkedIn com a tua marca, geradas em segundos.</p></div>
+      <div class="fc"><div class="fi">🏠</div><h3>Carteira de Imóveis</h3><p>Sincronizada automaticamente do teu CRM. Sem inserção manual.</p></div>
+      <div class="fc"><div class="fi">👥</div><h3>CRM de Clientes</h3><p>Histórico, score de prioridade e compatibilidade automática com imóveis.</p></div>
+      <div class="fc"><div class="fi">📊</div><h3>Dashboard pessoal</h3><p>KPIs da tua carteira, evolução de preços e visitas — num relance.</p></div>
+      <div class="fc"><div class="fi">🎓</div><h3>Academia IA</h3><p>Coach IA por voz para aprenderes técnicas de venda no teu ritmo.</p></div>
+      <div class="fc"><div class="fi">🔖</div><h3>White-label</h3><p>A app com o teu logótipo, as tuas cores e o teu nome — parece feita só para ti.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="sec" id="precos">
+  <div class="si" style="text-align:center">
+    <div class="ey" style="display:block">Preços</div>
+    <h2>Simples e transparente</h2>
+  </div>
+  <div class="pg si">
+    <div class="pc">
+      <div class="pcn">Basic</div>
+      <div class="pcp">€10</div>
+      <div class="pcpe">/mês + IVA</div>
+      <ul class="pcl">
+        <li>20 posts IA / mês</li>
+        <li>10 role plays / mês</li>
+        <li>5 minutas / mês</li>
+        <li>15 sessões Academia / mês</li>
+        <li>Até 15 imóveis</li>
+        <li>Até 30 clientes CRM</li>
+        <li>Agenda básica</li>
+      </ul>
+      <a href="#lista" class="pbtn pbo">Garantir oferta early access</a>
+    </div>
+    <div class="pc hot">
+      <div class="pcb">Mais popular</div>
+      <div class="pcn">Pro</div>
+      <div class="pcp">€29</div>
+      <div class="pcpe">/mês + IVA · primeiros 100 ganham 3 meses grátis</div>
+      <ul class="pcl">
+        <li>80 posts IA / mês</li>
+        <li>50 role plays / mês</li>
+        <li>15 minutas / mês</li>
+        <li>30 sessões Academia / mês</li>
+        <li>Imóveis ilimitados</li>
+        <li>CRM ilimitado</li>
+        <li>Agenda por voz + sync calendário</li>
+        <li>Sincronização CRM automática</li>
+      </ul>
+      <a href="#lista" class="pbtn pbf">Garantir oferta early access</a>
+    </div>
+    <div class="pc">
+      <div class="pcn">Agência</div>
+      <div class="pcp">€89</div>
+      <div class="pcpe">/mês + IVA · 5 consultores · plano Pro cada</div>
+      <ul class="pcl">
+        <li>Plano Pro para cada consultor</li>
+        <li>Até 5 consultores</li>
+        <li>Painel de gestão de equipa</li>
+        <li>White-label da agência</li>
+        <li>Suporte prioritário</li>
+        <li>€17.80/consultor vs €29 Pro individual</li>
+      </ul>
+      <a href="#lista" class="pbtn pbo">Falar connosco</a>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.</p>
+</div>
+
+<!-- FEEDBACK BETA -->
+<div class="sec" style="padding-top:0;padding-bottom:80px">
+  <div class="si" style="text-align:center">
+    <div class="ey" style="display:block">Beta Testers</div>
+    <h2 style="font-size:clamp(28px,3vw,40px)">Tens sugestões ou encontraste algo?</h2>
+    <div class="fb-card">
+      <div class="fb-t">Partilha connosco</div>
+      <div class="fb-s">O teu feedback constrói o produto. Resposta garantida em 24h.</div>
+      <div class="fb-form">
+        <div class="row2">
+          <input class="inp" id="fb-nome" placeholder="Nome" type="text">
+          <input class="inp" id="fb-email" placeholder="Email" type="email">
+        </div>
+        <select class="inp" id="fb-tipo">
+          <option value="">Tipo de feedback...</option>
+          <option value="sugestao">Sugestão de melhoria</option>
+          <option value="erro">Reportar um erro</option>
+          <option value="elogio">Elogio</option>
+          <option value="outro">Outro</option>
+        </select>
+        <textarea class="inp" id="fb-msg" placeholder="A tua mensagem..."></textarea>
+        <button class="fb-btn" onclick="submeterFeedback()">Enviar feedback</button>
+      </div>
+      <div class="fb-ok" id="fb-ok">Obrigado! O teu feedback foi recebido. 🙏</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-sec">
+  <h2>Começa hoje.<br><em>Oferta early access.</em></h2>
+  <p>Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra.</p>
+  <a href="#lista" class="btn btn-c">Garantir oferta early access →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi2">
+    <div class="flogo">Imobly</div>
+    <div class="fcopy">© 2026 Imobly · A plataforma que pensa como consultor</div>
+  </div>
+</footer>
+
+<script>
+const SUPA_URL = 'https://ajdvxrjlwfonjskiazbx.supabase.co';
+const SUPA_KEY = 'sb_publishable_ZDAiwggjZVEOiTQcl0lAIg_onvyVBHn';
+const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+
+async function submeterLista() {
+  const email = document.getElementById('wl-email').value.trim();
+  if (!email) { alert('Por favor insere o teu email.'); return; }
+  const btn = document.getElementById('wl-btn');
+  btn.disabled = true; btn.textContent = 'A guardar...';
+  const { error } = await supa.from('lista_espera').insert({
+    nome: document.getElementById('wl-nome').value.trim() || null,
+    email,
+    telefone: document.getElementById('wl-tel').value.trim() || null,
+    empresa: document.getElementById('wl-empresa').value.trim() || null,
+    cidade: document.getElementById('wl-cidade').value.trim() || null,
+  });
+  if (error) { alert('Ocorreu um erro. Tenta novamente.'); btn.disabled = false; btn.textContent = 'Garantir oferta early access →'; return; }
+  document.getElementById('wl-form-area').style.display = 'none';
+  document.getElementById('wl-ok').style.display = 'block';
+}
+
+async function submeterFeedback() {
+  const msg = document.getElementById('fb-msg').value.trim();
+  if (!msg) { alert('Por favor escreve a tua mensagem.'); return; }
+  const btn = document.querySelector('.fb-btn');
+  btn.disabled = true; btn.textContent = 'A enviar...';
+  const { error } = await supa.from('feedback').insert({
+    nome: document.getElementById('fb-nome').value.trim() || null,
+    email: document.getElementById('fb-email').value.trim() || null,
+    tipo: document.getElementById('fb-tipo').value || null,
+    mensagem: msg,
+  });
+  if (error) { alert('Erro ao enviar. Tenta novamente.'); btn.disabled = false; btn.textContent = 'Enviar feedback'; return; }
+  document.querySelector('.fb-form').style.display = 'none';
+  document.getElementById('fb-ok').style.display = 'block';
+}
+
+// Animação das mensagens no phone mockup
+const seq = [
+  {id:'c1', delay:800},
+  {id:'c2', delay:2200},
+  {id:'cdots', delay:3400, hide:4400},
+  {id:'c3', delay:4500},
+  {id:'c4', delay:5600},
+];
+seq.forEach(({id, delay, hide}) => {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.transition = 'opacity .4s';
+    el.style.opacity = '1';
+    if (hide) setTimeout(() => { el.style.opacity='0'; el.style.display='none'; }, hide - delay);
+  }, delay);
+});
+
+// Cenários clicáveis
+document.querySelectorAll('.scn').forEach(s => {
+  s.addEventListener('click', () => {
+    document.querySelectorAll('.scn').forEach(x => x.classList.remove('on'));
+    s.classList.add('on');
+  });
+});
+
+// Scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
