@@ -470,7 +470,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <script>
 const SUPA_URL = 'https://ajdvxrjlwfonjskiazbx.supabase.co';
 const SUPA_KEY = 'sb_publishable_ZDAiwggjZVEOiTQcl0lAIg_onvyVBHn';
-const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);  async function atualizarContador() {   const { count } = await supa.from('lista_espera').select('*', { count: 'exact', head: true });   const total = Math.max(count || 0, 6);   const pct = Math.min(Math.round((total / 100) * 100), 100);   const restantes = Math.max(100 - total, 0);   document.getElementById('bar').style.width = pct + '%';   document.getElementById('bar-lbl').innerHTML = '<strong>' + total + ' consultores</strong> já garantiram o seu lugar · ' + restantes + ' vagas restantes'; } atualizarContador();
 
 async function submeterLista() {
   const email = document.getElementById('wl-email').value.trim();
