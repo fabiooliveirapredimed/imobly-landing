@@ -22,6 +22,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --cream:#FAF7F2;--copper:#C2894C;--copper-deep:#8B5E2A;
+  --olive:#2B3329;--olive2:#3D483A;--champagne:#F5EDD8;
   --ink:#1C1A18;--slate:#6B6560;--border:#E8E1D8;
   --white:#FFFFFF;--dark:#141210;--dark2:#1E1B18;
   --corm:'Cormorant Garamond',serif;--mont:'Montserrat',sans-serif;
@@ -40,17 +41,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 6%;display:flex
 .btn-o{background:transparent;border:1.5px solid var(--border);color:var(--ink)}.btn-o:hover{border-color:var(--copper);color:var(--copper)}
 
 /* HERO */
-.hero{min-height:100vh;padding:130px 6% 90px;display:flex;align-items:center;gap:70px;max-width:1180px;margin:0 auto}
+.hero-wrap{background:linear-gradient(135deg,var(--olive) 0%,var(--olive2) 100%);position:relative;overflow:hidden}
+.hero-wrap::before{content:"";position:absolute;inset:0;opacity:.035;background-image:linear-gradient(var(--champagne) 1px,transparent 1px),linear-gradient(90deg,var(--champagne) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-mark{position:absolute;top:50%;right:-8%;transform:translateY(-50%);width:640px;max-width:70vw;opacity:.07;pointer-events:none}
+.hero{min-height:100vh;padding:130px 6% 90px;display:flex;align-items:center;gap:70px;max-width:1180px;margin:0 auto;position:relative;z-index:1}
 .hero-l{flex:1;max-width:520px}
 .hero-r{flex:0 0 350px}
-.tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;padding:6px 14px;background:rgba(194,137,76,.09);border:1px solid rgba(194,137,76,.25);border-radius:20px;font-size:10px;font-weight:600;color:var(--copper-deep);letter-spacing:1.5px;text-transform:uppercase}
+.tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;padding:6px 14px;background:rgba(196,149,42,.12);border:1px solid rgba(196,149,42,.35);border-radius:20px;font-size:10px;font-weight:600;color:var(--champagne);letter-spacing:1.5px;text-transform:uppercase}
 .tdot{width:6px;height:6px;border-radius:50%;background:var(--copper);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-family:var(--corm);font-size:clamp(44px,5vw,70px);font-weight:400;line-height:1.04;margin-bottom:20px}
+h1{font-family:var(--corm);font-size:clamp(44px,5vw,70px);font-weight:400;line-height:1.04;margin-bottom:20px;color:var(--champagne)}
 h1 em{font-style:italic;color:var(--copper)}
-.hero-sub{font-size:15px;line-height:1.72;color:var(--slate);margin-bottom:32px;max-width:440px}
+.hero-sub{font-size:15px;line-height:1.72;color:rgba(245,237,216,.65);margin-bottom:32px;max-width:440px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .hero-btns .btn{padding:14px 28px;font-size:13px;border-radius:11px}
+.hero-btns .btn-o{background:transparent;border:1.5px solid rgba(245,237,216,.25);color:var(--champagne)}
+.hero-btns .btn-o:hover{border-color:var(--copper);color:var(--copper)}
 
 /* WAITING LIST CARD */
 .wl{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.07)}
@@ -225,6 +231,8 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 </nav>
 
 <!-- HERO -->
+<div class="hero-wrap">
+<img src="/imobly-icon.png" alt="" class="hero-mark">
 <div style="max-width:1180px;margin:0 auto;padding:0 6%">
 <div class="hero">
   <div class="hero-l">
@@ -262,6 +270,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 
