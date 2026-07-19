@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acordo de Nível de Serviço (SLA) — Imobly</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--copper:#C2894C;--copper-deep:#8B5E2A;
+  --ink:#1C1A18;--slate:#6B6560;--border:#E8E1D8;
+  --white:#FFFFFF;--dark:#141210;
+  --corm:'Cormorant Garamond',serif;--mont:'Montserrat',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--mont);line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:60px 24px 100px}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--slate);text-decoration:none;margin-bottom:32px;letter-spacing:.5px;text-transform:uppercase;font-weight:600}
+.back:hover{color:var(--copper)}
+h1{font-family:var(--corm);font-size:clamp(32px,5vw,44px);font-weight:400;margin-bottom:8px}
+.updated{font-size:12px;color:var(--slate);margin-bottom:40px}
+h2{font-family:var(--corm);font-size:20px;font-weight:600;margin:28px 0 8px}
+p,li{font-size:14px;color:var(--slate);margin-bottom:4px}
+ul{margin-left:18px;margin-bottom:8px}
+.notice{background:#FFF8ED;border:1px solid #F0D9AE;border-radius:12px;padding:16px 18px;margin-bottom:32px;font-size:13px;color:#8B5E2A}
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-family:var(--mont);font-weight:600;color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+td{color:var(--slate)}
+.big{font-family:var(--corm);font-size:32px;color:var(--copper-deep)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="/" class="back">← Imobly</a>
+  <h1>Acordo de Nível de Serviço</h1>
+  <p class="updated">Service Level Agreement (SLA) · Última atualização: 19 de julho de 2026</p>
+
+  <div class="notice">Este SLA aplica-se aos planos Pro e Agência. O plano Basic é fornecido em regime de melhor esforço, sem garantia de disponibilidade nem créditos de serviço associados.</div>
+
+  <h2>1. Disponibilidade do serviço</h2>
+  <p class="big">99,9%</p>
+  <p>Objetivo mensal de disponibilidade da aplicação (app.imobly.pt), excluindo janelas de manutenção programada comunicadas com antecedência e eventos fora do nosso controlo razoável (força maior, falhas de fornecedores de infraestrutura como Supabase, Vercel ou Anthropic).</p>
+
+  <h2>2. Cálculo e créditos de serviço</h2>
+  <table>
+    <tr><th>Disponibilidade mensal real</th><th>Crédito aplicado à subscrição seguinte</th></tr>
+    <tr><td>Entre 99,0% e 99,9%</td><td>10%</td></tr>
+    <tr><td>Entre 95,0% e 99,0%</td><td>25%</td></tr>
+    <tr><td>Abaixo de 95,0%</td><td>50%</td></tr>
+  </table>
+  <p>Os créditos são aplicados mediante pedido do consultor em suporte@imobly.pt, no prazo de 30 dias após o mês em causa, e não são cumuláveis com reembolso em dinheiro.</p>
+
+  <h2>3. Cópias de segurança (backups)</h2>
+  <ul>
+    <li>Backups automáticos diários da base de dados, com retenção de 7 dias</li>
+    <li>Backups mantidos pelo fornecedor de infraestrutura (Supabase) em ambiente separado do ambiente de produção</li>
+    <li>Restauro pontual disponível mediante pedido, em caso de incidente que o justifique</li>
+  </ul>
+
+  <h2>4. Segurança</h2>
+  <ul>
+    <li>Comunicação encriptada (HTTPS/TLS) em toda a aplicação e site</li>
+    <li>Isolamento de dados entre consultores ao nível da base de dados (Row Level Security)</li>
+    <li>Autenticação obrigatória para acesso à conta</li>
+    <li>Monitorização de erros em produção após cada atualização</li>
+  </ul>
+
+  <h2>5. Tempo de resposta a incidentes e suporte</h2>
+  <table>
+    <tr><th>Severidade</th><th>Descrição</th><th>Tempo de primeira resposta</th></tr>
+    <tr><td>Crítica</td><td>Serviço totalmente indisponível para todos os consultores</td><td>Até 4 horas</td></tr>
+    <tr><td>Alta</td><td>Funcionalidade essencial indisponível (ex. login, pagamentos)</td><td>Até 8 horas úteis</td></tr>
+    <tr><td>Normal</td><td>Erro pontual ou pedido de suporte geral</td><td>Até 2 dias úteis</td></tr>
+  </table>
+  <p>Suporte disponível por email em suporte@imobly.pt, em dias úteis.</p>
+
+  <h2>6. Manutenção programada</h2>
+  <p>Sempre que possível, manutenções que impliquem indisponibilidade são realizadas fora do horário de maior utilização e comunicadas com pelo menos 24 horas de antecedência através da aplicação ou por email. Manutenções de emergência para corrigir falhas de segurança podem ocorrer sem aviso prévio.</p>
+
+  <h2>7. Exclusões</h2>
+  <p>Este SLA não cobre indisponibilidade causada por: falhas na ligação à internet do consultor; utilização indevida ou fora dos Termos de Serviço; força maior; ou indisponibilidade de serviços de terceiros dos quais o Imobly depende (Anthropic, Stripe, Supabase, Vercel, Resend), sem prejuízo de tentarmos mitigar o impacto sobre os consultores.</p>
+
+  <h2>8. Contacto</h2>
+  <p>Para reportar incidentes ou pedir créditos de serviço, contacte-nos em suporte@imobly.pt.</p>
+</div>
+</body>
+</html>
