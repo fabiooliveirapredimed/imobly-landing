@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acordo de Nível de Serviço (SLA) — Imobly</title>
+<title>Objetivos de Nível de Serviço (SLA) — Imobly</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -38,23 +38,17 @@ td{color:var(--slate)}
 <body>
 <div class="wrap">
   <a href="/" class="back">← Imobly</a>
-  <h1>Acordo de Nível de Serviço</h1>
-  <p class="updated">Service Level Agreement (SLA) · Última atualização: 19 de julho de 2026</p>
+  <h1>Objetivos de Nível de Serviço</h1>
+  <p class="updated">Service Level Objectives (SLA) · Última atualização: 19 de julho de 2026</p>
 
-  <div class="notice">Este SLA aplica-se aos planos Pro e Agência. O plano Basic é fornecido em regime de melhor esforço, sem garantia de disponibilidade nem créditos de serviço associados.</div>
+  <div class="notice">Este documento descreve os nossos objetivos de serviço e boas práticas. A disponibilidade indicada é um <strong>objetivo interno</strong>, não uma garantia contratual com créditos automáticos — ainda não temos monitorização independente de uptime a validar este número de forma objetiva. Assim que essa monitorização estiver em funcionamento, este documento passará a incluir compromissos vinculativos e créditos de serviço, e o Fábio Santos será notificado antes dessa transição entrar em vigor.</div>
 
   <h2>1. Disponibilidade do serviço</h2>
   <p class="big">99,9%</p>
-  <p>Objetivo mensal de disponibilidade da aplicação (app.imobly.pt), excluindo janelas de manutenção programada comunicadas com antecedência e eventos fora do nosso controlo razoável (força maior, falhas de fornecedores de infraestrutura como Supabase, Vercel ou Anthropic).</p>
+  <p>Objetivo mensal de disponibilidade da aplicação (app.imobly.pt), excluindo janelas de manutenção programada comunicadas com antecedência e eventos fora do nosso controlo razoável (força maior, falhas de fornecedores de infraestrutura como Supabase, Vercel ou Anthropic). Este é o padrão que perseguimos e para o qual desenhamos a infraestrutura, mas, sem monitorização própria de uptime, não o reportamos hoje como um número medido nem como uma garantia contratual.</p>
 
-  <h2>2. Cálculo e créditos de serviço</h2>
-  <table>
-    <tr><th>Disponibilidade mensal real</th><th>Crédito aplicado à subscrição seguinte</th></tr>
-    <tr><td>Entre 99,0% e 99,9%</td><td>10%</td></tr>
-    <tr><td>Entre 95,0% e 99,0%</td><td>25%</td></tr>
-    <tr><td>Abaixo de 95,0%</td><td>50%</td></tr>
-  </table>
-  <p>Os créditos são aplicados mediante pedido do consultor em suporte@imobly.pt, no prazo de 30 dias após o mês em causa, e não são cumuláveis com reembolso em dinheiro.</p>
+  <h2>2. Créditos de serviço</h2>
+  <p>Não aplicamos atualmente créditos de serviço automáticos por indisponibilidade, porque não temos ainda uma forma objetiva e verificável de medir o cumprimento do objetivo de disponibilidade. Se um consultor Pro ou Agência sofrer uma indisponibilidade prolongada e documentada, pode contactar-nos em suporte@imobly.pt e avaliaremos o caso de forma casuística.</p>
 
   <h2>3. Cópias de segurança (backups)</h2>
   <ul>
