@@ -62,10 +62,10 @@ h1 em{font-style:italic;color:var(--copper)}
 .wl{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.07)}
 .wl-t{font-family:var(--corm);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:6px}
 .wl-s{font-size:12px;color:var(--slate);margin-bottom:16px;line-height:1.55}
-.bar-wrap{background:var(--border);border-radius:4px;height:6px;margin-bottom:6px;overflow:hidden}
-.bar-fill{height:100%;background:var(--copper);border-radius:4px;transition:width .6s}
-.bar-lbl{font-size:10.5px;color:var(--slate);margin-bottom:18px}
-.bar-lbl strong{color:var(--copper-deep)}
+
+
+
+
 .wl-form{display:flex;flex-direction:column;gap:9px}
 .row2{display:flex;gap:9px}
 .row2>*{flex:1}
@@ -251,8 +251,6 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
       <div id="wl-form-area">
         <div class="wl-t">Garanta o seu lugar</div>
         <div class="wl-s">Os primeiros 100 a subscreverem o plano Pro anual (€29/mês + IVA) ganham 3 meses extra, grátis.</div>
-        <div class="bar-wrap"><div class="bar-fill" id="bar" style="width:6%"></div></div>
-        <div class="bar-lbl" id="bar-lbl"><strong>6 consultores</strong> já garantiram o seu lugar · 94 vagas restantes</div>
         <div class="wl-form">
           <input class="inp" id="wl-nome" placeholder="O seu nome" type="text">
           <input class="inp" id="wl-email" placeholder="Email profissional *" type="email" required>
@@ -498,7 +496,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <script>
 const SUPA_URL = 'https://ajdvxrjlwfonjskiazbx.supabase.co';
 const SUPA_KEY = 'sb_publishable_ZDAiwggjZVEOiTQcl0lAIg_onvyVBHn';
-const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);  async function atualizarContador() {   const { count } = await supa.from('lista_espera').select('*', { count: 'exact', head: true });   const total = Math.max(count || 0, 6);   const pct = Math.min(Math.round((total / 100) * 100), 100);   const restantes = Math.max(100 - total, 0);   document.getElementById('bar').style.width = pct + '%';   document.getElementById('bar-lbl').innerHTML = '<strong>' + total + ' consultores</strong> já garantiram o seu lugar · ' + restantes + ' vagas restantes'; } atualizarContador();
+const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
 async function submeterLista() {
   const email = document.getElementById('wl-email').value.trim();
