@@ -224,11 +224,12 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     Imobly
   </a>
   <div class="nav-links">
-    <a href="#roleplay" class="na">Role Play IA</a>
-    <a href="#minutas" class="na">Minutas</a>
-    <a href="#agenda" class="na">Agenda</a>
-    <a href="#precos" class="na">Preços</a>
-    <a href="https://app.imobly.pt" class="btn btn-c">Entrar</a>
+    <a href="#roleplay" class="na" data-i18n="navRp">Role Play IA</a>
+    <a href="#minutas" class="na" data-i18n="navMin">Minutas</a>
+    <a href="#agenda" class="na" data-i18n="navAg">Agenda</a>
+    <a href="#precos" class="na" data-i18n="navPr">Preços</a>
+    <button id="lang-btn" onclick="alternarIdioma()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:var(--ink);cursor:pointer;font-family:var(--mont)">EN</button>
+    <a href="https://app.imobly.pt" class="btn btn-c" data-i18n="navEntrar">Entrar</a>
   </div>
 </nav>
 
@@ -238,34 +239,34 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <div style="max-width:1180px;margin:0 auto;padding:0 6%">
 <div class="hero">
   <div class="hero-l">
-    <div class="tag"><span class="tdot"></span>Early Access — Primeiros 100 consultores</div>
-    <h1>O seu Assistente Pessoal,<br><em>a sua Marca.</em></h1>
-    <p class="hero-sub">O assistente IA que substitui um ordenado — CRM inteligente, estudos de mercado com dados reais, documentos automáticos, treino de vendas e marketing. Tudo num só lugar, com a sua marca.</p>
+    <div class="tag"><span class="tdot"></span><span data-i18n="tagEA">Early Access — Primeiros 100 consultores</span></div>
+    <h1 data-i18n="h1">O seu Assistente Pessoal,<br><em>a sua Marca.</em></h1>
+    <p class="hero-sub" data-i18n="heroSub">O assistente IA que substitui um ordenado — CRM inteligente, estudos de mercado com dados reais, documentos automáticos, treino de vendas e marketing. Tudo num só lugar, com a sua marca.</p>
     <div class="hero-btns">
-      <a href="https://app.imobly.pt?modo=registo" class="btn btn-c">Garantir oferta early access</a>
-      <a href="#roleplay" class="btn btn-o">Ver como funciona</a>
+      <a href="https://app.imobly.pt?modo=registo" class="btn btn-c" data-i18n="ctaEA">Garantir oferta early access</a>
+      <a href="#roleplay" class="btn btn-o" data-i18n="ctaComo">Ver como funciona</a>
     </div>
   </div>
   <div class="hero-r" id="lista">
     <div class="wl">
       <div id="wl-form-area">
-        <div class="wl-t">Garanta o seu lugar</div>
-        <div class="wl-s">Os primeiros 100 a subscreverem o plano Pro anual (€29/mês + IVA) ganham 3 meses extra, grátis.</div>
+        <div class="wl-t" data-i18n="wlT">Garanta o seu lugar</div>
+        <div class="wl-s" data-i18n="wlS">Os primeiros 100 a subscreverem o plano Pro anual (€29/mês + IVA) ganham 3 meses extra, grátis.</div>
         <div class="wl-form">
-          <input class="inp" id="wl-nome" placeholder="O seu nome" type="text">
-          <input class="inp" id="wl-email" placeholder="Email profissional *" type="email" required>
+          <input class="inp" id="wl-nome" data-i18n-ph="phNome" placeholder="O seu nome" type="text">
+          <input class="inp" id="wl-email" data-i18n-ph="phEmail" placeholder="Email profissional *" type="email" required>
           <div class="row2">
-            <input class="inp" id="wl-tel" placeholder="Telemóvel" type="tel">
-            <input class="inp" id="wl-empresa" placeholder="Empresa / Agência" type="text">
+            <input class="inp" id="wl-tel" data-i18n-ph="phTel" placeholder="Telemóvel" type="tel">
+            <input class="inp" id="wl-empresa" data-i18n-ph="phEmp" placeholder="Empresa / Agência" type="text">
           </div>
-          <button class="wl-btn" id="wl-btn" onclick="submeterLista()">Quero a oferta early access →</button>
-          <p class="wl-note">Sem spam. Avisamos quando abrir.</p>
+          <button class="wl-btn" id="wl-btn" onclick="submeterLista()" data-i18n="wlBtn">Quero a oferta early access →</button>
+          <p class="wl-note" data-i18n="wlNote">Sem spam. Avisamos quando abrir.</p>
         </div>
       </div>
       <div class="wl-ok" id="wl-ok">
         <div class="wl-ok-icon">🎉</div>
-        <div class="wl-ok-t">Está na lista!</div>
-        <p class="wl-ok-s">Vamos avisá-lo assim que abrirmos. Obrigado por acreditar no projeto.</p>
+        <div class="wl-ok-t" data-i18n="wlOkT">Está na lista!</div>
+        <p class="wl-ok-s" data-i18n="wlOkS">Vamos avisá-lo assim que abrirmos. Obrigado por acreditar no projeto.</p>
       </div>
     </div>
   </div>
@@ -279,11 +280,11 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
   <div class="tcol si">
     <div>
       <div class="ey">Role Play IA</div>
-      <h2>Pratica até<br><em>acertar na certa</em></h2>
-      <p class="ssub">A IA simula clientes reais — objeções ao preço, hesitações de financiamento, comparações com outros imóveis. Treina no Imobly, fecha na vida real.</p>
+      <h2 data-i18n="rpH2">Pratica até<br><em>acertar na certa</em></h2>
+      <p class="ssub" data-i18n="rpSub">A IA simula clientes reais — objeções ao preço, hesitações de financiamento, comparações com outros imóveis. Treina no Imobly, fecha na vida real.</p>
       <div class="rpst">
-        <div><div class="rpn">3×</div><div class="rpl">mais preparado para objeções</div></div>
-        <div><div class="rpn">∞</div><div class="rpl">simulações disponíveis</div></div>
+        <div><div class="rpn">3×</div><div class="rpl" data-i18n="rpSt1">mais preparado para objeções</div></div>
+        <div><div class="rpn">∞</div><div class="rpl" data-i18n="rpSt2">simulações disponíveis</div></div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px">
@@ -291,26 +292,26 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
         <div class="pscr">
           <div class="ph">
             <div class="ph-ic">🎭</div>
-            <div><div class="ph-t">Role Play IA</div><div class="ph-s">Objeção de preço — difícil</div></div>
+            <div><div class="ph-t">Role Play IA</div><div class="ph-s" data-i18n="rpPhS">Objeção de preço — difícil</div></div>
           </div>
           <div class="chat">
-            <div class="blbl">Cliente</div>
-            <div class="b bai" id="c1" style="opacity:0">O preço está 30 mil acima do mercado. Vi apartamentos iguais mais baratos.</div>
-            <div class="blbl r">Consultor</div>
-            <div class="b bme" id="c2" style="opacity:0">Posso mostrar-lhe os comparáveis desta zona nos últimos 3 meses?</div>
+            <div class="blbl" data-i18n="lblCliente">Cliente</div>
+            <div class="b bai" id="c1" style="opacity:0" data-i18n="c1">O preço está 30 mil acima do mercado. Vi apartamentos iguais mais baratos.</div>
+            <div class="blbl r" data-i18n="lblConsultor">Consultor</div>
+            <div class="b bme" id="c2" style="opacity:0" data-i18n="c2">Posso mostrar-lhe os comparáveis desta zona nos últimos 3 meses?</div>
             <div class="dots" id="cdots" style="opacity:0"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-            <div class="b bai" id="c3" style="opacity:0">Mas o condomínio também é caro. Como justifica?</div>
+            <div class="b bai" id="c3" style="opacity:0" data-i18n="c3">Mas o condomínio também é caro. Como justifica?</div>
             <div class="bsc" id="c4" style="opacity:0">
-              <strong>⭐ Avaliação Imobly</strong>
-              <p>Boa gestão da primeira objeção. Para duplas, separa os temas e responde com dados concretos.</p>
+              <strong data-i18n="c4T">⭐ Avaliação Imobly</strong>
+              <p data-i18n="c4P">Boa gestão da primeira objeção. Para duplas, separa os temas e responde com dados concretos.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="scns">
-        <div class="scn on"><h4>Objeção de preço</h4><p>"Vi apartamentos iguais por menos 30 mil euros..."</p></div>
-        <div class="scn"><h4>Hesitação de último minuto</h4><p>"Preciso de pensar mais antes de assinar..."</p></div>
-        <div class="scn"><h4>Dúvida de financiamento</h4><p>"Não sei se o banco aprova o crédito..."</p></div>
+        <div class="scn on"><h4 data-i18n="sc1T">Objeção de preço</h4><p data-i18n="sc1P">"Vi apartamentos iguais por menos 30 mil euros..."</p></div>
+        <div class="scn"><h4 data-i18n="sc2T">Hesitação de último minuto</h4><p data-i18n="sc2P">"Preciso de pensar mais antes de assinar..."</p></div>
+        <div class="scn"><h4 data-i18n="sc3T">Dúvida de financiamento</h4><p data-i18n="sc3P">"Não sei se o banco aprova o crédito..."</p></div>
       </div>
     </div>
   </div>
@@ -320,21 +321,21 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <div class="sw" id="minutas">
   <div class="tcol si">
     <div class="fpr">
-      <div class="fpr-t">Proposta de Compra</div>
-      <div class="fld"><div class="flbl">Proponente</div><div class="fval">João Miguel Alves Pereira</div></div>
-      <div class="fld"><div class="flbl">Imóvel</div><div class="fval">Rua das Flores, n.º 12, 2.º Dto, Lisboa</div></div>
-      <div class="fld"><div class="flbl">Valor proposto</div><div class="fval">265.000,00 €</div></div>
-      <div class="fld"><div class="flbl">Condições</div><div class="fval">Crédito bancário · Prazo 90 dias</div></div>
-      <div class="fok">✓ Documento gerado pela IA · pronto a assinar</div>
+      <div class="fpr-t" data-i18n="fprT">Proposta de Compra</div>
+      <div class="fld"><div class="flbl" data-i18n="fl1">Proponente</div><div class="fval">João Miguel Alves Pereira</div></div>
+      <div class="fld"><div class="flbl" data-i18n="fl2">Imóvel</div><div class="fval">Rua das Flores, n.º 12, 2.º Dto, Lisboa</div></div>
+      <div class="fld"><div class="flbl" data-i18n="fl3">Valor proposto</div><div class="fval">265.000,00 €</div></div>
+      <div class="fld"><div class="flbl" data-i18n="fl4">Condições</div><div class="fval" data-i18n="fv4">Crédito bancário · Prazo 90 dias</div></div>
+      <div class="fok" data-i18n="fok">✓ Documento gerado pela IA · pronto a assinar</div>
     </div>
     <div>
-      <div class="ey">Minutas automáticas</div>
-      <h2>Prontos a assinar<br>em <em>30 segundos</em></h2>
-      <p class="ssub">Preencha os dados uma vez. O Imobly gera Contrato de Mediação, Ficha de Visita, Ficha de Angariação ou Proposta de Compra — sempre com os seus dados e o seu logótipo. Exporte em PDF.</p>
+      <div class="ey" data-i18n="minEy">Minutas automáticas</div>
+      <h2 data-i18n="minH2">Prontos a assinar<br>em <em>30 segundos</em></h2>
+      <p class="ssub" data-i18n="minSub">Preencha os dados uma vez. O Imobly gera Contrato de Mediação, Ficha de Visita, Ficha de Angariação ou Proposta de Compra — sempre com os seus dados e o seu logótipo. Exporte em PDF.</p>
       <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📋</div><span style="font-size:13px;color:var(--slate)">Contrato de Mediação (CMI)</span></div>
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">🏠</div><span style="font-size:13px;color:var(--slate)">Ficha de visita e proposta</span></div>
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📄</div><span style="font-size:13px;color:var(--slate)">Relatório de avaliação de imóvel</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📋</div><span style="font-size:13px;color:var(--slate)" data-i18n="minL1">Contrato de Mediação (CMI)</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">🏠</div><span style="font-size:13px;color:var(--slate)" data-i18n="minL2">Ficha de visita e proposta</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:28px;height:28px;background:rgba(194,137,76,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px">📄</div><span style="font-size:13px;color:var(--slate)" data-i18n="minL3">Relatório de avaliação de imóvel</span></div>
       </div>
     </div>
   </div>
@@ -344,22 +345,22 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <div class="sec" id="agenda">
   <div class="tcol si">
     <div>
-      <div class="ey">Agenda por voz</div>
-      <h2>Fala. A agenda<br><em>trata do resto.</em></h2>
-      <p class="ssub">Diz "Visita amanhã às 15h, T3 Carnaxide, Maria Silva", confirme os dados e adicione ao Google Calendar com um toque — sem escrever nada à mão.</p>
+      <div class="ey" data-i18n="agEy">Agenda por voz</div>
+      <h2 data-i18n="agH2">Fala. A agenda<br><em>trata do resto.</em></h2>
+      <p class="ssub" data-i18n="agSub">Diz "Visita amanhã às 15h, T3 Carnaxide, Maria Silva", confirme os dados e adicione ao Google Calendar com um toque — sem escrever nada à mão.</p>
       <div style="margin-top:28px;padding:20px 24px;background:var(--white);border:1px solid var(--border);border-radius:16px;display:inline-block">
-        <div style="font-size:9.5px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Exemplo</div>
-        <div style="font-family:var(--corm);font-size:18px;color:var(--ink);font-style:italic">"Visita amanhã às 15h, T3 Carnaxide, Maria Silva"</div>
+        <div style="font-size:9.5px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px" data-i18n="agEx">Exemplo</div>
+        <div style="font-family:var(--corm);font-size:18px;color:var(--ink);font-style:italic" data-i18n="agQ">"Visita amanhã às 15h, T3 Carnaxide, Maria Silva"</div>
       </div>
     </div>
     <div class="vc">
       <div class="vbs"><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div></div>
-      <div class="vq">"Visita amanhã às 15h, <span>T3 Carnaxide</span>, Maria Silva"</div>
+      <div class="vq" data-i18n="agVq">"Visita amanhã às 15h, <span>T3 Carnaxide</span>, Maria Silva"</div>
       <div class="cev">
-        <div class="ct">Amanhã · 15:00 – 16:00</div>
-        <div class="cn">Visita — T3 Carnaxide</div>
-        <div class="cs">Maria Silva · Um toque para adicionar</div>
-        <div class="ctg">CONFIRMADO</div>
+        <div class="ct" data-i18n="agCt">Amanhã · 15:00 – 16:00</div>
+        <div class="cn" data-i18n="agCn">Visita — T3 Carnaxide</div>
+        <div class="cs" data-i18n="agCs">Maria Silva · Um toque para adicionar</div>
+        <div class="ctg" data-i18n="agCtg">CONFIRMADO</div>
       </div>
     </div>
   </div>
@@ -368,111 +369,111 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 <!-- MAIS FUNCIONALIDADES -->
 <div class="sw">
   <div class="si">
-    <div class="ey">Mais funcionalidades</div>
-    <h2>Tudo num só lugar</h2>
+    <div class="ey" data-i18n="ftEy">Mais funcionalidades</div>
+    <h2 data-i18n="ftH2">Tudo num só lugar</h2>
     <div class="fg">
-      <div class="fc"><div class="fi">📱</div><h3>Posts com IA</h3><p>Legendas para Instagram e LinkedIn com a sua marca, geradas em segundos.</p></div>
-      <div class="fc"><div class="fi">🏠</div><h3>Carteira de Imóveis</h3><p>Importação automática ou registo em segundos, com CRM integrado no Imobly.</p></div>
-      <div class="fc"><div class="fi">👥</div><h3>CRM de Clientes</h3><p>Histórico, score de prioridade e compatibilidade automática com imóveis.</p></div>
-      <div class="fc"><div class="fi">📊</div><h3>Dashboard pessoal</h3><p>KPIs da sua carteira, evolução de preços e visitas — num relance.</p></div>
-      <div class="fc"><div class="fi">🎓</div><h3>Academia IA</h3><p>Coach IA por voz para aprender técnicas de venda ao seu ritmo.</p></div>
-<div class="fc"><div class="fi">🔖</div><h3>White-label</h3><p>A app com o seu logótipo, as suas cores e o seu nome — parece feita só para ti.</p></div>
-      <div class="fc"><div class="fi">📈</div><h3>Estudo de Mercado</h3><p>Análise com dados reais do INE — preço/m², projeção a 5 anos e referência de mercado. Pronto a apresentar ao cliente.</p></div>
-      <div class="fc"><div class="fi">🎯</div><h3>Funil de Vendas</h3><p>Pipeline visual dos seus clientes por fase — de novo contacto até escritura. Com alertas automáticos de follow-up.</p></div>
-      <div class="fc"><div class="fi">📷</div><h3>Imobly Capture</h3><p>Normaliza as fotos dos seus imóveis — corrige cor, contraste e formata para portais e redes sociais.</p></div>    </div>
+      <div class="fc"><div class="fi">📱</div><h3 data-i18n="f1T">Posts com IA</h3><p data-i18n="f1P">Legendas para Instagram e LinkedIn com a sua marca, geradas em segundos.</p></div>
+      <div class="fc"><div class="fi">🏠</div><h3 data-i18n="f2T">Carteira de Imóveis</h3><p data-i18n="f2P">Importação automática ou registo em segundos, com CRM integrado no Imobly.</p></div>
+      <div class="fc"><div class="fi">👥</div><h3 data-i18n="f3T">CRM de Clientes</h3><p data-i18n="f3P">Histórico, score de prioridade e compatibilidade automática com imóveis.</p></div>
+      <div class="fc"><div class="fi">📊</div><h3 data-i18n="f4T">Dashboard pessoal</h3><p data-i18n="f4P">KPIs da sua carteira, evolução de preços e visitas — num relance.</p></div>
+      <div class="fc"><div class="fi">🎓</div><h3 data-i18n="f5T">Academia IA</h3><p data-i18n="f5P">Coach IA por voz para aprender técnicas de venda ao seu ritmo.</p></div>
+<div class="fc"><div class="fi">🔖</div><h3 data-i18n="f6T">White-label</h3><p data-i18n="f6P">A app com o seu logótipo, as suas cores e o seu nome — parece feita só para si.</p></div>
+      <div class="fc"><div class="fi">📈</div><h3 data-i18n="f7T">Estudo de Mercado</h3><p data-i18n="f7P">Análise com dados reais do INE — preço/m², projeção a 5 anos e referência de mercado. Pronto a apresentar ao cliente.</p></div>
+      <div class="fc"><div class="fi">🎯</div><h3 data-i18n="f8T">Funil de Vendas</h3><p data-i18n="f8P">Pipeline visual dos seus clientes por fase — de novo contacto até escritura. Com alertas automáticos de follow-up.</p></div>
+      <div class="fc"><div class="fi">📷</div><h3 data-i18n="f9T">Imobly Capture</h3><p data-i18n="f9P">Normaliza as fotos dos seus imóveis — corrige cor, contraste e formata para portais e redes sociais.</p></div>    </div>
   </div>
 </div>
 
 <!-- PRICING -->
 <div class="sec" id="precos">
   <div class="si" style="text-align:center">
-    <div class="ey" style="display:block">Preços</div>
-    <h2>Simples e transparente</h2>
+    <div class="ey" style="display:block" data-i18n="prEy">Preços</div>
+    <h2 data-i18n="prH2">Simples e transparente</h2>
   </div>
   <div class="pg si">
     <div class="pc">
       <div class="pcn">Basic</div>
       <div class="pcp">€10</div>
-      <div class="pcpe">/mês + IVA · <strong>7 dias grátis</strong>, cancele quando quiser</div>
+      <div class="pcpe" data-i18n="pBasicE">/mês + IVA · <strong>7 dias grátis</strong>, cancele quando quiser</div>
       <ul class="pcl">
-        <li>20 posts IA / mês</li>
-        <li>5 role plays / mês</li>
-        <li>5 minutas / mês</li>
-        <li>Até 15 imóveis</li>
-        <li>Até 30 clientes CRM</li>
-        <li class="no">Agenda por voz</li>
+        <li data-i18n="pb1">20 posts IA / mês</li>
+        <li data-i18n="pb2">5 role plays / mês</li>
+        <li data-i18n="pb3">5 minutas / mês</li>
+        <li data-i18n="pb4">Até 15 imóveis</li>
+        <li data-i18n="pb5">Até 30 clientes CRM</li>
+        <li class="no" data-i18n="pb6">Agenda por voz</li>
         <li class="no">Imobly Capture</li>
       </ul>
-      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo">Experimentar 7 dias grátis</a>
+      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo" data-i18n="pBasicBtn">Experimentar 7 dias grátis</a>
     </div>
     <div class="pc hot">
-      <div class="pcb">Mais popular</div>
+      <div class="pcb" data-i18n="pPop">Mais popular</div>
       <div class="pcn">Pro</div>
       <div class="pcp">€29</div>
-      <div class="pcpe">/mês + IVA · primeiros 100 ganham 3 meses grátis</div>
+      <div class="pcpe" data-i18n="pProE">/mês + IVA · primeiros 100 ganham 3 meses grátis</div>
       <ul class="pcl">
-        <li>80 posts IA / mês</li>
-        <li>50 role plays / mês</li>
-        <li>15 minutas / mês</li>
-        <li>Imóveis ilimitados</li>
-        <li>CRM ilimitado</li>
-        <li>Agenda por voz + sync calendário</li>
-        <li>Sincronização CRM automática</li>
+        <li data-i18n="pp1">80 posts IA / mês</li>
+        <li data-i18n="pp2">50 role plays / mês</li>
+        <li data-i18n="pp3">15 minutas / mês</li>
+        <li data-i18n="pp4">Imóveis ilimitados</li>
+        <li data-i18n="pp5">CRM ilimitado</li>
+        <li data-i18n="pp6">Agenda por voz + sync calendário</li>
+        <li data-i18n="pp7">Sincronização CRM automática</li>
       </ul>
-      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbf">Garantir oferta early access</a>
+      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbf" data-i18n="ctaEA2">Garantir oferta early access</a>
     </div>
     <div class="pc">
       <div class="pcb" style="background:#1C2B1A">Founders Agência</div>       <div class="pcn">Agência</div>
       <div class="pcp">€89</div>
-      <div class="pcpe">/mês + IVA · 5 consultores · plano Pro cada</div>
+      <div class="pcpe" data-i18n="pAgE">/mês + IVA · 5 consultores · plano Pro cada</div>
       <ul class="pcl">
-        <li>Plano Pro para cada consultor</li>
-        <li>Até 5 consultores</li>
-        <li>Painel de gestão de equipa</li>
-        <li>White-label da agência</li>
-        <li>Suporte prioritário</li>
-        <li>€17.80/consultor vs €29 Pro individual</li>
-        <li>+5 consultores extra: €66,75/mês (−25%)</li>
+        <li data-i18n="pa1">Plano Pro para cada consultor</li>
+        <li data-i18n="pa2">Até 5 consultores</li>
+        <li data-i18n="pa3">Painel de gestão de equipa</li>
+        <li data-i18n="pa4">White-label da agência</li>
+        <li data-i18n="pa5">Suporte prioritário</li>
+        <li data-i18n="pa6">€17.80/consultor vs €29 Pro individual</li>
+        <li data-i18n="pa7">+5 consultores extra: €66,75/mês (−25%)</li>
       </ul>
-      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo">Falar connosco</a>
+      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo" data-i18n="pAgBtn">Falar connosco</a>
     </div>
   </div>
-  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.<br><strong>Minuta</strong> = contrato (ex.: CMI) pré-preenchido automaticamente pela app — poupa horas de preenchimento manual.<br>O período de 7 dias grátis converte automaticamente em subscrição Basic no final. Enviamos aviso antes — cancele a qualquer momento, sem custos.</p>
+  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px" data-i18n="prNote">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.<br><strong>Minuta</strong> = contrato (ex.: CMI) pré-preenchido automaticamente pela app — poupa horas de preenchimento manual.<br>O período de 7 dias grátis converte automaticamente em subscrição Basic no final. Enviamos aviso antes — cancele a qualquer momento, sem custos.</p>
 </div>
 
 <!-- FEEDBACK BETA -->
 <div class="sec" style="padding-top:0;padding-bottom:80px">
   <div class="si" style="text-align:center">
     <div class="ey" style="display:block">Beta Testers</div>
-    <h2 style="font-size:clamp(28px,3vw,40px)">Tens sugestões ou encontraste algo?</h2>
+    <h2 style="font-size:clamp(28px,3vw,40px)" data-i18n="fbH2">Tem sugestões ou encontrou algo?</h2>
     <div class="fb-card">
-      <div class="fb-t">Partilha connosco</div>
-      <div class="fb-s">O seu feedback constrói o produto. Resposta garantida em 24h.</div>
+      <div class="fb-t" data-i18n="fbT">Partilhe connosco</div>
+      <div class="fb-s" data-i18n="fbS">O seu feedback constrói o produto. Resposta garantida em 24h.</div>
       <div class="fb-form">
         <div class="row2">
-          <input class="inp" id="fb-nome" placeholder="Nome" type="text">
+          <input class="inp" id="fb-nome" data-i18n-ph="phNome2" placeholder="Nome" type="text">
           <input class="inp" id="fb-email" placeholder="Email" type="email">
         </div>
         <select class="inp" id="fb-tipo">
-          <option value="">Tipo de feedback...</option>
-          <option value="sugestao">Sugestão de melhoria</option>
-          <option value="erro">Reportar um erro</option>
-          <option value="elogio">Elogio</option>
-          <option value="outro">Outro</option>
+          <option value="" data-i18n="fbO0">Tipo de feedback...</option>
+          <option value="sugestao" data-i18n="fbO1">Sugestão de melhoria</option>
+          <option value="erro" data-i18n="fbO2">Reportar um erro</option>
+          <option value="elogio" data-i18n="fbO3">Elogio</option>
+          <option value="outro" data-i18n="fbO4">Outro</option>
         </select>
-        <textarea class="inp" id="fb-msg" placeholder="A sua mensagem..."></textarea>
-        <button class="fb-btn" onclick="submeterFeedback()">Enviar feedback</button>
+        <textarea class="inp" id="fb-msg" data-i18n-ph="phMsg" placeholder="A sua mensagem..."></textarea>
+        <button class="fb-btn" onclick="submeterFeedback()" data-i18n="fbBtn">Enviar feedback</button>
       </div>
-      <div class="fb-ok" id="fb-ok">Obrigado! O seu feedback foi recebido. 🙏</div>
+      <div class="fb-ok" id="fb-ok" data-i18n="fbOk">Obrigado! O seu feedback foi recebido. 🙏</div>
     </div>
   </div>
 </div>
 
 <!-- CTA FINAL -->
 <div class="cta-sec">
-  <h2>Comece hoje.<br><em>Oferta early access.</em></h2>
-  <p>Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra.</p>
-  <a href="https://app.imobly.pt?modo=registo" class="btn btn-c">Garantir oferta early access →</a>
+  <h2 data-i18n="ctaH2">Comece hoje.<br><em>Oferta early access.</em></h2>
+  <p data-i18n="ctaP">Os primeiros 100 a subscrever o plano Pro anual ganham 3 meses extra.</p>
+  <a href="https://app.imobly.pt?modo=registo" class="btn btn-c" data-i18n="ctaEA3">Garantir oferta early access →</a>
 </div>
 
 <!-- FOOTER -->
@@ -483,12 +484,12 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
       Imobly
     </div>
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center">
-      <a href="/termos.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none">Termos de Serviço</a>
-      <a href="/privacidade.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none">Política de Privacidade</a>
-      <a href="/cookies.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none">Política de Cookies</a>
+      <a href="/termos.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none" data-i18n="ftTermos">Termos de Serviço</a>
+      <a href="/privacidade.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none" data-i18n="ftPriv">Política de Privacidade</a>
+      <a href="/cookies.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none" data-i18n="ftCook">Política de Cookies</a>
       <a href="/dpa.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none">DPA</a>
       <a href="/sla.html" style="font-size:11px;color:rgba(255,255,255,.35);text-decoration:none">SLA</a>
-      <div class="fcopy">© 2026 Imobly™<br>Todos os direitos reservados.</div>
+      <div class="fcopy" data-i18n="ftCopy">© 2026 Imobly™<br>Todos os direitos reservados.</div>
     </div>
   </div>
 </footer>
@@ -500,32 +501,32 @@ const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
 async function submeterLista() {
   const email = document.getElementById('wl-email').value.trim();
-  if (!email) { alert('Por favor insira o seu email.'); return; }
+  if (!email) { alert(L('emailObg')); return; }
   const btn = document.getElementById('wl-btn');
-  btn.disabled = true; btn.textContent = 'A guardar...';
+  btn.disabled = true; btn.textContent = L('aGuardar');
   const { error } = await supa.from('lista_espera').insert({
     nome: document.getElementById('wl-nome').value.trim() || null,
     email,
     telefone: document.getElementById('wl-tel').value.trim() || null,
     empresa: document.getElementById('wl-empresa').value.trim() || null,
   });
-  if (error) { alert('Ocorreu um erro. Tente novamente.'); btn.disabled = false; btn.textContent = 'Garantir oferta early access →'; return; }
+  if (error) { alert(L('erroGeral')); btn.disabled = false; btn.textContent = L('wlBtn'); return; }
   document.getElementById('wl-form-area').style.display = 'none';
   document.getElementById('wl-ok').style.display = 'block';
 }
 
 async function submeterFeedback() {
   const msg = document.getElementById('fb-msg').value.trim();
-  if (!msg) { alert('Por favor escreva a sua mensagem.'); return; }
+  if (!msg) { alert(L('msgObg')); return; }
   const btn = document.querySelector('.fb-btn');
-  btn.disabled = true; btn.textContent = 'A enviar...';
+  btn.disabled = true; btn.textContent = L('aEnviar');
   const { error } = await supa.from('feedback').insert({
     nome: document.getElementById('fb-nome').value.trim() || null,
     email: document.getElementById('fb-email').value.trim() || null,
     tipo: document.getElementById('fb-tipo').value || null,
     mensagem: msg,
   });
-  if (error) { alert('Erro ao enviar. Tenta novamente.'); btn.disabled = false; btn.textContent = 'Enviar feedback'; return; }
+  if (error) { alert(L('erroEnvio')); btn.disabled = false; btn.textContent = L('fbBtn'); return; }
   document.querySelector('.fb-form').style.display = 'none';
   document.getElementById('fb-ok').style.display = 'block';
 }
@@ -563,6 +564,100 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
   });
 });
+</script>
+
+<script>
+// ── i18n PT/EN ──
+const EN = {
+navRp:"AI Role Play", navMin:"Contracts", navAg:"Calendar", navPr:"Pricing", navEntrar:"Sign in",
+tagEA:"Early Access — First 100 consultants",
+h1:"Your Personal Assistant,<br><em>your Brand.</em>",
+heroSub:"The AI assistant that replaces a salary — smart CRM, market studies with real data, automatic documents, sales training and marketing. All in one place, under your brand.",
+ctaEA:"Claim early access offer", ctaComo:"See how it works",
+wlT:"Secure your spot", wlS:"The first 100 to subscribe to the annual Pro plan (€29/month + VAT) get 3 extra months, free.",
+phNome:"Your name", phEmail:"Work email *", phTel:"Mobile", phEmp:"Company / Agency",
+wlBtn:"I want the early access offer →", wlNote:"No spam. We'll let you know when we open.",
+wlOkT:"You're on the list!", wlOkS:"We'll notify you as soon as we open. Thank you for believing in the project.",
+rpH2:"Practice until<br><em>you nail it</em>",
+rpSub:"The AI simulates real clients — price objections, financing hesitation, comparisons with other properties. Train in Imobly, close in real life.",
+rpSt1:"more prepared for objections", rpSt2:"simulations available",
+rpPhS:"Price objection — hard", lblCliente:"Client", lblConsultor:"Agent",
+c1:"The price is 30k above market. I've seen identical apartments for less.",
+c2:"May I show you the comparables for this area over the last 3 months?",
+c3:"But the condo fees are also high. How do you justify that?",
+c4T:"⭐ Imobly Assessment", c4P:"Good handling of the first objection. For double objections, separate the topics and answer with concrete data.",
+sc1T:"Price objection", sc1P:"\"I've seen identical apartments for 30 thousand euros less...\"",
+sc2T:"Last-minute hesitation", sc2P:"\"I need to think more before signing...\"",
+sc3T:"Financing doubt", sc3P:"\"I'm not sure the bank will approve the loan...\"",
+fprT:"Purchase Offer", fl1:"Buyer", fl2:"Property", fl3:"Offered amount", fl4:"Conditions",
+fv4:"Bank financing · 90-day term", fok:"✓ Document generated by AI · ready to sign",
+minEy:"Automatic contracts", minH2:"Ready to sign<br>in <em>30 seconds</em>",
+minSub:"Enter the details once. Imobly generates the Mediation Contract, Visit Form, Listing Form or Purchase Offer — always with your details and your logo. Export as PDF.",
+minL1:"Mediation Contract (CMI)", minL2:"Visit form and purchase offer", minL3:"Property valuation report",
+agEy:"Voice calendar", agH2:"Speak. The calendar<br><em>handles the rest.</em>",
+agSub:"Say \"Viewing tomorrow at 3pm, 3-bed Carnaxide, Maria Silva\", confirm the details and add it to Google Calendar with one tap — nothing typed by hand.",
+agEx:"Example", agQ:"\"Viewing tomorrow at 3pm, 3-bed Carnaxide, Maria Silva\"",
+agVq:"\"Viewing tomorrow at 3pm, <span>3-bed Carnaxide</span>, Maria Silva\"",
+agCt:"Tomorrow · 3:00 – 4:00 PM", agCn:"Viewing — 3-bed Carnaxide", agCs:"Maria Silva · One tap to add", agCtg:"CONFIRMED",
+ftEy:"More features", ftH2:"Everything in one place",
+f1T:"AI Posts", f1P:"Instagram and LinkedIn captions with your brand, generated in seconds.",
+f2T:"Property Portfolio", f2P:"Automatic import or add in seconds, with CRM built into Imobly.",
+f3T:"Client CRM", f3P:"History, priority score and automatic matching with properties.",
+f4T:"Personal Dashboard", f4P:"Portfolio KPIs, price trends and viewings — at a glance.",
+f5T:"AI Academy", f5P:"Voice AI coach to learn sales techniques at your own pace.",
+f6T:"White-label", f6P:"The app with your logo, your colours and your name — it looks made just for you.",
+f7T:"Market Study", f7P:"Analysis with real INE data — price/m², 5-year projection and market benchmark. Ready to present to your client.",
+f8T:"Sales Funnel", f8P:"Visual pipeline of your clients by stage — from new contact to closing. With automatic follow-up alerts.",
+f9T:"Imobly Capture", f9P:"Normalises your property photos — fixes colour and contrast, formats for portals and social media.",
+prEy:"Pricing", prH2:"Simple and transparent",
+pBasicE:"/month + VAT · <strong>7 days free</strong>, cancel anytime",
+pb1:"20 AI posts / month", pb2:"5 role plays / month", pb3:"5 contracts / month", pb4:"Up to 15 properties", pb5:"Up to 30 CRM clients", pb6:"Voice calendar",
+pBasicBtn:"Try 7 days free",
+pPop:"Most popular", pProE:"/month + VAT · first 100 get 3 months free",
+pp1:"80 AI posts / month", pp2:"50 role plays / month", pp3:"15 contracts / month", pp4:"Unlimited properties", pp5:"Unlimited CRM", pp6:"Voice calendar + calendar sync", pp7:"Automatic CRM sync",
+ctaEA2:"Claim early access offer",
+pAgE:"/month + VAT · 5 consultants · Pro plan each",
+pa1:"Pro plan for every consultant", pa2:"Up to 5 consultants", pa3:"Team management panel", pa4:"Agency white-label", pa5:"Priority support", pa6:"€17.80/consultant vs €29 individual Pro", pa7:"+5 extra consultants: €66.75/month (−25%)",
+pAgBtn:"Talk to us",
+prNote:"All prices in euros, excluding VAT at the legal rate (23%). Monthly or annual billing.<br><strong>Contract (minuta)</strong> = a contract (e.g. CMI) pre-filled automatically by the app — saves hours of manual form-filling.<br>The 7-day free period automatically converts into a Basic subscription at the end. We send a reminder beforehand — cancel anytime, at no cost.",
+fbH2:"Any suggestions, or found something?", fbT:"Share it with us", fbS:"Your feedback builds the product. Guaranteed reply within 24h.",
+phNome2:"Name", phMsg:"Your message...",
+fbO0:"Feedback type...", fbO1:"Improvement suggestion", fbO2:"Report a bug", fbO3:"Praise", fbO4:"Other",
+fbBtn:"Send feedback", fbOk:"Thank you! Your feedback has been received. 🙏",
+ctaH2:"Start today.<br><em>Early access offer.</em>", ctaP:"The first 100 to subscribe to the annual Pro plan get 3 extra months.",
+ctaEA3:"Claim early access offer →",
+ftTermos:"Terms of Service", ftPriv:"Privacy Policy", ftCook:"Cookie Policy", ftCopy:"© 2026 Imobly™<br>All rights reserved.",
+};
+const MSG = {
+  pt: { emailObg:"Por favor insira o seu email.", aGuardar:"A guardar...", erroGeral:"Ocorreu um erro. Tente novamente.", wlBtn:"Quero a oferta early access →", msgObg:"Por favor escreva a sua mensagem.", aEnviar:"A enviar...", erroEnvio:"Erro ao enviar. Tente novamente.", fbBtn:"Enviar feedback" },
+  en: { emailObg:"Please enter your email.", aGuardar:"Saving...", erroGeral:"Something went wrong. Please try again.", wlBtn:"I want the early access offer →", msgObg:"Please write your message.", aEnviar:"Sending...", erroEnvio:"Error sending. Please try again.", fbBtn:"Send feedback" },
+};
+let LANG = localStorage.getItem("imobly_lang") || ((navigator.language||"pt").toLowerCase().startsWith("pt") ? "pt" : "en");
+const PT_ORIG = {};
+function aplicarIdioma() {
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (!(k in PT_ORIG)) PT_ORIG[k] = el.innerHTML;
+    if (LANG === "en" && EN[k]) el.innerHTML = EN[k];
+    else if (LANG === "pt") el.innerHTML = PT_ORIG[k];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    const k = el.getAttribute("data-i18n-ph");
+    if (!(k in PT_ORIG)) PT_ORIG[k] = el.getAttribute("placeholder");
+    if (LANG === "en" && EN[k]) el.setAttribute("placeholder", EN[k]);
+    else if (LANG === "pt") el.setAttribute("placeholder", PT_ORIG[k]);
+  });
+  const b = document.getElementById("lang-btn");
+  if (b) b.textContent = LANG === "pt" ? "EN" : "PT";
+}
+function alternarIdioma() {
+  LANG = LANG === "pt" ? "en" : "pt";
+  localStorage.setItem("imobly_lang", LANG);
+  aplicarIdioma();
+}
+function L(k) { return MSG[LANG][k]; }
+aplicarIdioma();
 </script>
 </body>
 </html>
