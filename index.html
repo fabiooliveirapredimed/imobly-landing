@@ -173,6 +173,8 @@ h2 em{font-style:italic;color:var(--copper)}
 .pcl li{font-size:12px;color:var(--slate);display:flex;align-items:center;gap:8px}
 .pc.hot .pcl li{color:rgba(255,255,255,.52)}
 .pcl li::before{content:'✓';color:var(--copper);font-weight:700;font-size:11px;flex-shrink:0}
+.pcl li.no{color:var(--slate);opacity:.75}
+.pcl li.no::before{content:'✕';color:#C0392B}
 .pbtn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:12.5px;font-weight:600;text-decoration:none;transition:all .2s}
 .pbo{border:1.5px solid var(--border);color:var(--ink)}.pbo:hover{border-color:var(--copper);color:var(--copper)}
 .pbf{background:var(--copper);color:#fff;border:none}.pbf:hover{background:var(--copper-deep)}
@@ -372,7 +374,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     <h2>Tudo num só lugar</h2>
     <div class="fg">
       <div class="fc"><div class="fi">📱</div><h3>Posts com IA</h3><p>Legendas para Instagram e LinkedIn com a sua marca, geradas em segundos.</p></div>
-      <div class="fc"><div class="fi">🏠</div><h3>Carteira de Imóveis</h3><p>Sincronizada automaticamente do seu CRM. Sem inserção manual.</p></div>
+      <div class="fc"><div class="fi">🏠</div><h3>Carteira de Imóveis</h3><p>Importação automática ou registo em segundos, com CRM integrado no Imobly.</p></div>
       <div class="fc"><div class="fi">👥</div><h3>CRM de Clientes</h3><p>Histórico, score de prioridade e compatibilidade automática com imóveis.</p></div>
       <div class="fc"><div class="fi">📊</div><h3>Dashboard pessoal</h3><p>KPIs da sua carteira, evolução de preços e visitas — num relance.</p></div>
       <div class="fc"><div class="fi">🎓</div><h3>Academia IA</h3><p>Coach IA por voz para aprender técnicas de venda ao seu ritmo.</p></div>
@@ -393,16 +395,17 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
     <div class="pc">
       <div class="pcn">Basic</div>
       <div class="pcp">€10</div>
-      <div class="pcpe">/mês + IVA</div>
+      <div class="pcpe">/mês + IVA · <strong>7 dias grátis</strong>, cancele quando quiser</div>
       <ul class="pcl">
-        <li>5 posts IA / mês</li>
-        <li>3 role plays / mês</li>
-        <li>2 minutas / mês</li>
-        <li>Até 5 imóveis</li>
-        <li>Até 10 clientes CRM</li>
-        <li>Sem agenda por voz · Sem Imobly Capture</li>
+        <li>20 posts IA / mês</li>
+        <li>5 role plays / mês</li>
+        <li>5 minutas / mês</li>
+        <li>Até 15 imóveis</li>
+        <li>Até 30 clientes CRM</li>
+        <li class="no">Agenda por voz</li>
+        <li class="no">Imobly Capture</li>
       </ul>
-      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo">Subscrever Basic</a>
+      <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo">Experimentar 7 dias grátis</a>
     </div>
     <div class="pc hot">
       <div class="pcb">Mais popular</div>
@@ -431,11 +434,12 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
         <li>White-label da agência</li>
         <li>Suporte prioritário</li>
         <li>€17.80/consultor vs €29 Pro individual</li>
+        <li>+5 consultores extra: €66,75/mês (−25%)</li>
       </ul>
       <a href="https://app.imobly.pt?modo=registo" class="pbtn pbo">Falar connosco</a>
     </div>
   </div>
-  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.</p>
+  <p style="text-align:center;font-size:11px;color:var(--slate);margin-top:18px">Todos os preços em euros, excluindo IVA à taxa legal em vigor (23%). Faturação mensal ou anual.<br><strong>Minuta</strong> = contrato (ex.: CMI) pré-preenchido automaticamente pela app — poupa horas de preenchimento manual.<br>O período de 7 dias grátis converte automaticamente em subscrição Basic no final. Enviamos aviso antes — cancele a qualquer momento, sem custos.</p>
 </div>
 
 <!-- FEEDBACK BETA -->
