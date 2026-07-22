@@ -151,6 +151,28 @@ h2 em{font-style:italic;color:var(--copper)}
 .cs{font-size:10.5px;color:rgba(255,255,255,.32);margin-top:3px}
 .ctg{display:inline-block;margin-top:8px;padding:3px 8px;background:rgba(194,137,76,.18);border-radius:4px;font-size:9px;font-weight:700;color:var(--copper);letter-spacing:.5px}
 
+
+/* DASHBOARD MOCKUP */
+.dphone{width:280px;background:#0D0B09;border-radius:46px;padding:10px;box-shadow:0 40px 80px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.05);margin:0 auto}
+.dscr{background:var(--cream);border-radius:38px;overflow:hidden;padding:30px 16px 22px}
+.dgreet{font-family:var(--corm);font-size:22px;color:var(--ink);line-height:1.15;margin-bottom:3px}
+.ddate{font-size:8.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+.dkpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.dk{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:12px 13px;box-shadow:0 4px 14px rgba(0,0,0,.03)}
+.dk-n{font-family:var(--corm);font-size:26px;color:var(--ink);line-height:1}
+.dk-l{font-size:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--slate);margin-top:5px}
+.dk-s{font-size:8.5px;color:var(--copper);margin-top:2px}
+.dperf{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:13px;box-shadow:0 4px 14px rgba(0,0,0,.03)}
+.dperf-t{font-family:var(--corm);font-size:14px;color:var(--ink);margin-bottom:9px}
+.dperf-g{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.dp-n{font-family:var(--corm);font-size:17px;color:#2A6028}
+.dp-n.gold{color:var(--copper-deep)}
+.dp-l{font-size:7.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate);margin-top:2px}
+.dtask{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:12px 13px;margin-top:10px;box-shadow:0 4px 14px rgba(0,0,0,.03)}
+.dtask-t{font-family:var(--corm);font-size:13px;color:var(--ink);margin-bottom:7px}
+.dtask-i{display:flex;gap:7px;align-items:flex-start;font-size:9px;color:var(--slate);line-height:1.45;margin-bottom:5px}
+.dtask-n{width:13px;height:13px;border-radius:50%;background:rgba(194,137,76,.14);color:var(--copper-deep);font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
 /* FEATURES */
 .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
 .fc{padding:24px;background:var(--cream);border:1px solid var(--border);border-radius:18px;transition:all .2s}
@@ -362,6 +384,45 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
         <div class="cs" data-i18n="agCs">Maria Silva · Um toque para adicionar</div>
         <div class="ctg" data-i18n="agCtg">CONFIRMADO</div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DASHBOARD -->
+<div class="sw" id="dashboard">
+  <div class="tcol si">
+    <div class="dphone">
+      <div class="dscr">
+        <div class="ddate" data-i18n="dbDate">Quarta-feira, 22/07</div>
+        <div class="dgreet" data-i18n="dbGreet">Boa tarde,<br>Sofia.</div>
+        <div class="ddate" style="margin-bottom:12px;letter-spacing:.5px;text-transform:none;font-weight:500" data-i18n="dbAg">Aliança Imobiliária</div>
+        <div class="dkpis">
+          <div class="dk"><div class="dk-n">12</div><div class="dk-l" data-i18n="dbK1">Imóveis ativos</div><div class="dk-s" data-i18n="dbK1s">na sua carteira</div></div>
+          <div class="dk"><div class="dk-n">3</div><div class="dk-l" data-i18n="dbK2">Visitas hoje</div><div class="dk-s" data-i18n="dbK2s">2 confirmadas</div></div>
+          <div class="dk"><div class="dk-n">2</div><div class="dk-l" data-i18n="dbK3">Em reserva</div><div class="dk-s">&nbsp;</div></div>
+          <div class="dk"><div class="dk-n">4</div><div class="dk-l" data-i18n="dbK4">Vendidos</div><div class="dk-s" data-i18n="dbK4s">este trimestre</div></div>
+        </div>
+        <div class="dperf">
+          <div class="dperf-t" data-i18n="dbPerfT">Desempenho do negócio</div>
+          <div class="dperf-g">
+            <div><div class="dp-n gold">€ 14.500</div><div class="dp-l" data-i18n="dbP1">Comissão prevista</div></div>
+            <div><div class="dp-n">€ 22.300</div><div class="dp-l" data-i18n="dbP2">Comissão recebida</div></div>
+            <div><div class="dp-n gold">24%</div><div class="dp-l" data-i18n="dbP3">Taxa de conversão</div></div>
+            <div><div class="dp-n gold">12</div><div class="dp-l" data-i18n="dbP4">Atividades concluídas</div></div>
+          </div>
+        </div>
+        <div class="dtask">
+          <div class="dtask-t" data-i18n="dbTaskT">A sua semana</div>
+          <div class="dtask-i"><div class="dtask-n">1</div><span data-i18n="dbT1">Contacte a Ana Martins hoje — 8 dias sem interação</span></div>
+          <div class="dtask-i"><div class="dtask-n">2</div><span data-i18n="dbT2">Prepare a visita de sábado ao T3 na Av. da Liberdade</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="ey" data-i18n="dbEy">Dashboard pessoal</div>
+      <h2 data-i18n="dbH2">O seu negócio,<br><em>num relance</em></h2>
+      <p class="ssub" data-i18n="dbSub">Imóveis ativos, visitas, reservas e vendas do trimestre. Comissão prevista e recebida, taxa de conversão e prioridades da semana geradas por IA — tudo assim que abre a app.</p>
     </div>
   </div>
 </div>
@@ -599,6 +660,11 @@ agSub:"Say \"Viewing tomorrow at 3pm, 3-bed Carnaxide, Maria Silva\", confirm th
 agEx:"Example", agQ:"\"Viewing tomorrow at 3pm, 3-bed Carnaxide, Maria Silva\"",
 agVq:"\"Viewing tomorrow at 3pm, <span>3-bed Carnaxide</span>, Maria Silva\"",
 agCt:"Tomorrow · 3:00 – 4:00 PM", agCn:"Viewing — 3-bed Carnaxide", agCs:"Maria Silva · One tap to add", agCtg:"CONFIRMED",
+dbDate:"Wednesday, 22/07", dbGreet:"Good afternoon,<br>Sofia.", dbAg:"Aliança Imobiliária",
+dbK1:"Active listings", dbK1s:"in your portfolio", dbK2:"Viewings today", dbK2s:"2 confirmed", dbK3:"Reserved", dbK4:"Sold", dbK4s:"this quarter",
+dbPerfT:"Business performance", dbP1:"Expected commission", dbP2:"Commission received", dbP3:"Conversion rate", dbP4:"Activities completed",
+dbTaskT:"Your week", dbT1:"Contact Ana Martins today — 8 days without interaction", dbT2:"Prepare Saturday's viewing of the 3-bed on Av. da Liberdade",
+dbEy:"Personal Dashboard", dbH2:"Your business,<br><em>at a glance</em>", dbSub:"Active listings, viewings, reservations and quarterly sales. Expected and received commission, conversion rate and AI-generated weekly priorities — all the moment you open the app.",
 ftEy:"More features", ftH2:"Everything in one place",
 f1T:"AI Posts", f1P:"Instagram and LinkedIn captions with your brand, generated in seconds.",
 f2T:"Property Portfolio", f2P:"Automatic import or add in seconds, with CRM built into Imobly.",
