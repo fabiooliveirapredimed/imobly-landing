@@ -181,6 +181,19 @@ h2 em{font-style:italic;color:var(--copper)}
 .fc h3{font-family:var(--corm);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:7px}
 .fc p{font-size:12px;color:var(--slate);line-height:1.65}
 
+
+/* PORQUE IMOBLY */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px;max-width:860px;margin-left:auto;margin-right:auto}
+.cmp-c{border-radius:18px;padding:24px}
+.cmp-c.g{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.cmp-c.i{background:rgba(194,137,76,.10);border:1px solid rgba(194,137,76,.32)}
+.cmp-t{font-family:var(--corm);font-size:19px;color:#fff;margin-bottom:14px}
+.cmp-c ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cmp-c li{font-size:12px;line-height:1.55;color:rgba(255,255,255,.55);display:flex;gap:8px;align-items:flex-start}
+.cmp-c.g li::before{content:'✕';color:rgba(255,255,255,.25);font-weight:700;flex-shrink:0;font-size:11px;margin-top:1px}
+.cmp-c.i li::before{content:'✓';color:var(--copper);font-weight:700;flex-shrink:0;font-size:11px;margin-top:1px}
+@media(max-width:700px){.cmp{grid-template-columns:1fr}}
+
 /* PRICING */
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
 .pc{padding:32px 24px;background:var(--white);border:1px solid var(--border);border-radius:20px;position:relative}
@@ -445,6 +458,36 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
   </div>
 </div>
 
+
+<!-- PORQUE IMOBLY -->
+<div class="sd" id="porque">
+  <div class="si" style="text-align:center">
+    <div class="ey" style="display:block" data-i18n="cpEy">Porquê o Imobly</div>
+    <h2 data-i18n="cpH2">Já uso o ChatGPT.<br><em>Porquê mudar?</em></h2>
+    <p class="ssub" style="margin:0 auto" data-i18n="cpSub">A diferença não é a inteligência — é onde ela está. Uma IA genérica não conhece os seus clientes, os seus imóveis, nem o mercado português.</p>
+    <div class="cmp">
+      <div class="cmp-c g">
+        <div class="cmp-t" data-i18n="cpGT">IA genérica</div>
+        <ul>
+          <li data-i18n="cpG1">Começa do zero em cada conversa — tem de colar imóveis, clientes e contexto à mão</li>
+          <li data-i18n="cpG2">Devolve texto solto que ainda tem de formatar, verificar e passar para os seus modelos</li>
+          <li data-i18n="cpG3">Não conhece o CMI, a Lei 15/2013 nem os dados do INE por zona</li>
+          <li data-i18n="cpG4">Não faz nada quando não está a falar com ela</li>
+        </ul>
+      </div>
+      <div class="cmp-c i">
+        <div class="cmp-t">Imobly</div>
+        <ul>
+          <li data-i18n="cpI1">Ligado à sua carteira, CRM e agenda — a IA já sabe quem é a Ana e que imóvel lhe interessa</li>
+          <li data-i18n="cpI2">Devolve o resultado final: CMI em PDF com o seu modelo, evento no calendário, post com a sua marca</li>
+          <li data-i18n="cpI3">Fluxos desenhados para o imobiliário português — minutas legais, dados INE, objeções reais do mercado</li>
+          <li data-i18n="cpI4">Trabalha em background: alertas de follow-up, score de risco de clientes e prioridades da semana</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PRICING -->
 <div class="sec" id="precos">
   <div class="si" style="text-align:center">
@@ -675,6 +718,17 @@ f6T:"White-label", f6P:"The app with your logo, your colours and your name — i
 f7T:"Market Study", f7P:"Analysis with real INE data — price/m², 5-year projection and market benchmark. Ready to present to your client.",
 f8T:"Sales Funnel", f8P:"Visual pipeline of your clients by stage — from new contact to closing. With automatic follow-up alerts.",
 f9T:"Imobly Capture", f9P:"Normalises your property photos — fixes colour and contrast, formats for portals and social media.",
+cpEy:"Why Imobly", cpH2:"I already use ChatGPT.<br><em>Why switch?</em>",
+cpSub:"The difference isn't intelligence — it's where it lives. A generic AI doesn't know your clients, your listings, or the Portuguese market.",
+cpGT:"Generic AI",
+cpG1:"Starts from zero every conversation — you paste listings, clients and context by hand",
+cpG2:"Returns loose text you still have to format, verify and move into your own templates",
+cpG3:"Doesn't know the CMI, Law 15/2013 or INE data by area",
+cpG4:"Does nothing when you're not talking to it",
+cpI1:"Connected to your portfolio, CRM and calendar — the AI already knows who Ana is and which property she wants",
+cpI2:"Delivers the final result: CMI as a PDF with your template, calendar event, post with your brand",
+cpI3:"Workflows built for Portuguese real estate — legal contracts, INE data, real market objections",
+cpI4:"Works in the background: follow-up alerts, client risk scores and weekly priorities",
 prEy:"Pricing", prH2:"Simple and transparent",
 pBasicE:"/month + VAT · <strong>7 days free</strong>, cancel anytime",
 pb1:"5 AI posts / month", pb2:"5 role plays / month", pb3:"5 contracts / month", pb4:"Up to 5 properties", pb5:"Up to 10 CRM clients", pb6:"Voice calendar",
