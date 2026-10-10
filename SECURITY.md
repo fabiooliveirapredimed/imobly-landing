@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in Imobly, please do not disclose it publicly.
 
-Report security issues privately to the Imobly team at suporte@imobly.pt.
+Report security issues privately to the Imobly team at info@imobly.pt.
 
 ## Protected Areas
 
