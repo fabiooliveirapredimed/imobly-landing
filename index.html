@@ -42,7 +42,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 4%;display:flex
 /* HERO — folha de projeto */
 .sheet{background:var(--cream);background-image:linear-gradient(#1B2A1F0F 1px,transparent 1px),linear-gradient(90deg,#1B2A1F0F 1px,transparent 1px);background-size:22px 22px;padding:92px 4% 40px}
 .sheet-frame{max-width:1240px;margin:0 auto;border:3px solid var(--ink);padding:6px}
-.sheet-in{border:1px solid var(--ink);background:rgba(243,239,230,.9)}
+.sheet-in{border:1px solid var(--ink);background:rgba(243,239,230,.9);overflow:hidden}
+.wm{white-space:nowrap}
+.legend>div>div{min-width:0}
+.lgt,.lgp{overflow-wrap:anywhere}
 .hero2{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px;padding:56px 44px 36px;align-items:center}
 .kick{font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--copper-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .kick .tdot{background:var(--copper-deep)}
@@ -254,11 +257,23 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
   .legend>div:nth-child(even){border-left:1px solid var(--ink)}
   .legend>div:nth-child(n+3){border-top:1px solid var(--ink)}
   .tblock{flex-direction:column;gap:4px}
+  .sheet{padding:80px 3% 28px}
+  .hero2{padding:28px 18px 20px;gap:22px}
+  .hero-sub{font-size:16px}
+  .hero-btns .btn{width:100%;text-align:center}
+  .plan{max-width:420px;margin:0 auto}
   .sec,.sd,.sw{padding:70px 6%}
   .fg,.pg{grid-template-columns:1fr}
   nav{padding:14px 5%}
   .nav-links{display:none}
   .fi2{flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:640px){
+  .legend{grid-template-columns:1fr}
+  .legend>div:nth-child(even){border-left:none}
+  .legend>div+div{border-top:1px solid var(--ink)}
+  .legend>div{padding:18px 18px}
+  .lgt{font-size:12.5px}
 }
 </style>
 </head>
@@ -266,7 +281,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo" style="display:flex;align-items:center;gap:10px"><img src="/imobly-simbolo.png" alt="" style="height:30px;width:auto">im<span class="o">o</span>bly</a>
+  <a href="#" class="logo" style="display:flex;align-items:center;gap:10px"><img src="/imobly-simbolo.png" alt="" style="height:30px;width:auto"><span class="wm">im<span class="o">o</span>bly</span></a>
   <div class="nav-links">
     <a href="#roleplay" class="na" data-i18n="navRp">Role Play IA</a>
     <a href="#minutas" class="na" data-i18n="navMin">Minutas</a>
@@ -289,7 +304,7 @@ footer{background:var(--dark);padding:34px 6%;border-top:1px solid rgba(255,255,
       <a href="#roleplay" class="btn btn-o" data-i18n="ctaComo">Ver como funciona</a>
     </div>
     </div>
-    <div><svg class="plan" role="img" aria-label="Planta de um apartamento com cotas e quatro marcações numeradas" viewBox="0 0 560 470"><rect x="34" y="44" width="480" height="372" fill="#E5E9D8"/><rect x="34" y="260" width="176" height="156" fill="#DCE2CC"/><rect x="390" y="260" width="124" height="156" fill="#DCE2CC"/><g stroke="#1B2A1F" stroke-width="1.4" fill="#FBF9F3"><rect x="70" y="84" width="108" height="42" rx="5"/><rect x="70" y="128" width="42" height="30" rx="4"/><rect x="332" y="62" width="150" height="26"/><rect x="332" y="62" width="26" height="100"/><circle cx="440" cy="170" r="22"/><rect x="62" y="300" width="84" height="64" rx="3"/><rect x="62" y="300" width="84" height="16" rx="3"/><rect x="418" y="296" width="78" height="62" rx="3"/><rect x="236" y="300" width="42" height="22" rx="8"/><circle cx="244" cy="356" r="12"/></g><path d="M34 44H514V416H34Z" fill="none" stroke="#1B2A1F" stroke-width="8"/><path d="M314 44V260M34 260H514M210 260V416M390 260V416" stroke="#1B2A1F" stroke-width="5" fill="none"/><rect x="308" y="150" width="14" height="46" fill="#E5E9D8"/><rect x="150" y="254" width="46" height="14" fill="#DCE2CC"/><rect x="306" y="254" width="46" height="14" fill="#E5E9D8"/><path d="M314 196A46 46 0 0 0 360 196M150 268A46 46 0 0 0 196 314M306 268A46 46 0 0 1 352 268" fill="none" stroke="#1B2A1F" stroke-width="1.2" opacity=".6"/><g font-family="DM Sans, sans-serif" font-size="11.5" font-weight="500" fill="#1B2A1F" letter-spacing="1"><text x="110" y="212">28,4 m²</text><text x="352" y="228">14,2 m²</text><text x="62" y="392">16,0 m²</text><text x="236" y="392">4,8 m²</text><text x="418" y="392">18,6 m²</text></g><g stroke="#8A6D1F" stroke-width="1.5" fill="none"><path d="M34 22H514M34 15V29M514 15V29"/><path d="M536 44V416M529 44H543M529 416H543"/></g><g font-family="DM Sans, sans-serif" font-size="11.5" font-weight="600" fill="#8A6D1F"><text x="244" y="18">12,40</text><text x="530" y="236" transform="rotate(90 530 236)">9,20</text></g><g font-family="DM Sans, sans-serif" font-weight="700" font-size="15" fill="#1B2A1F"><path d="M124 92L124 72" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="124" cy="72" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="119.6" y="77.4">1</text><path d="M430 100L430 130" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="430" cy="116" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="425.6" y="121.4">2</text><path d="M100 372L100 430" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="100" cy="444" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="95.6" y="449.4">3</text><path d="M452 372L452 430" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="452" cy="444" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="447.6" y="449.4">4</text></g><g stroke="#1B2A1F" stroke-width="1.3" fill="none"><path d="M60 444H124M60 440V448M92 440V448M124 440V448"/></g></svg></div>
+    <div><svg class="plan" role="img" aria-label="Planta de um apartamento com cotas e quatro marcações numeradas" viewBox="0 0 560 470"><rect x="34" y="44" width="480" height="372" fill="#E5E9D8"/><rect x="34" y="260" width="176" height="156" fill="#DCE2CC"/><rect x="390" y="260" width="124" height="156" fill="#DCE2CC"/><g stroke="#1B2A1F" stroke-width="1.4" fill="#FBF9F3"><rect x="70" y="84" width="108" height="42" rx="5"/><rect x="70" y="128" width="42" height="30" rx="4"/><rect x="332" y="62" width="150" height="26"/><rect x="332" y="62" width="26" height="100"/><circle cx="440" cy="170" r="22"/><rect x="62" y="300" width="84" height="64" rx="3"/><rect x="62" y="300" width="84" height="16" rx="3"/><rect x="418" y="296" width="78" height="62" rx="3"/><rect x="236" y="300" width="42" height="22" rx="8"/><circle cx="244" cy="356" r="12"/></g><path d="M34 44H514V416H34Z" fill="none" stroke="#1B2A1F" stroke-width="8"/><path d="M314 44V260M34 260H514M210 260V416M390 260V416" stroke="#1B2A1F" stroke-width="5" fill="none"/><rect x="308" y="150" width="14" height="46" fill="#E5E9D8"/><rect x="150" y="254" width="46" height="14" fill="#DCE2CC"/><rect x="306" y="254" width="46" height="14" fill="#E5E9D8"/><path d="M314 196A46 46 0 0 0 360 196M150 268A46 46 0 0 0 196 314M306 268A46 46 0 0 1 352 268" fill="none" stroke="#1B2A1F" stroke-width="1.2" opacity=".6"/><g font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#1B2A1F" letter-spacing=".5"><text x="110" y="212">28,4 m²</text><text x="352" y="228">14,2 m²</text><text x="62" y="392">16,0 m²</text><text x="236" y="392">4,8 m²</text><text x="418" y="392">18,6 m²</text></g><g stroke="#8A6D1F" stroke-width="1.5" fill="none"><path d="M34 22H514M34 15V29M514 15V29"/><path d="M536 44V416M529 44H543M529 416H543"/></g><g font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#8A6D1F"><text x="248" y="17">12,40</text><text x="530" y="236" transform="rotate(90 530 236)">9,20</text></g><g font-family="DM Sans, sans-serif" font-weight="700" font-size="15" fill="#1B2A1F"><path d="M124 92L124 72" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="124" cy="72" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="119.6" y="77.4">1</text><path d="M430 100L430 130" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="430" cy="116" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="425.6" y="121.4">2</text><path d="M100 372L100 430" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="100" cy="444" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="95.6" y="449.4">3</text><path d="M452 372L452 430" stroke="#8A6D1F" stroke-width="1.3"/><circle cx="452" cy="444" r="14" fill="#C8A44D" stroke="#1B2A1F" stroke-width="1.6"/><text x="447.6" y="449.4">4</text></g></svg></div>
   </div>
   <div class="legend"><div><span class="lgn">1</span><div><div class="lgt" data-i18n="lg1T">CRM inteligente</div><div class="lgp" data-i18n="lg1P">Funil de vendas com alertas de follow-up e prioridade calculada para cada cliente.</div></div></div><div><span class="lgn">2</span><div><div class="lgt" data-i18n="lg2T">Estudos de mercado</div><div class="lgp" data-i18n="lg2P">Relatórios com comparáveis e preço sugerido, com o seu logótipo e as suas cores.</div></div></div><div><span class="lgn">3</span><div><div class="lgt" data-i18n="lg3T">Documentos e CMI</div><div class="lgp" data-i18n="lg3P">Contratos e fichas preenchidos a partir dos documentos do cliente.</div></div></div><div><span class="lgn">4</span><div><div class="lgt" data-i18n="lg4T">Treino com IA</div><div class="lgp" data-i18n="lg4P">Simule negociações e objeções antes de entrar na reunião.</div></div></div></div>
   <div class="tblock"><span data-i18n="tbL"><b>Imobly</b> · Assistente com IA para consultores imobiliários</span><span class="nowrap" data-i18n="tbR">Folha 01/01</span></div>
