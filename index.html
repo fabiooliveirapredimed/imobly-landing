@@ -634,7 +634,7 @@ function _bot(id){ return document.getElementById(id).value || (Date.now()-PAGE_
 async function submeterLista() {
   if (_bot("wl-hp")) { document.getElementById("wl-form-area").style.display="none"; document.getElementById("wl-ok").style.display="block"; return; }
   const email = document.getElementById('wl-email').value.trim();
-  if (!email) { alert(L('emailObg')); return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { alert(L('emailObg')); return; }
   const btn = document.getElementById('wl-btn');
   btn.disabled = true; btn.textContent = L('aGuardar');
   const { error } = await supa.from('lista_espera').insert({
